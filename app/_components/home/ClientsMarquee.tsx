@@ -67,14 +67,14 @@ const ROW_TWO = [...ROW_TWO_BASE, ...ROW_TWO_BASE];
 
 function LogoCard({ client }: { client: ClientLogo }) {
   return (
-    <div className="flex w-40 flex-none items-center justify-center rounded-3xl border border-ths-earth/12 bg-white p-2 shadow-[0_1px_2px_rgba(23,17,13,0.03)] sm:w-44 md:w-52 md:p-3 lg:w-56">
+    <div className="flex h-24 w-32 flex-none items-center justify-center rounded-2xl border border-ths-earth/12 bg-white p-2 shadow-[0_1px_2px_rgba(23,17,13,0.03)] sm:h-28 sm:w-44 sm:rounded-3xl md:h-32 md:w-52 md:p-3 lg:w-56">
       <Image
         src={client.src}
         alt={client.name}
         width={client.width}
         height={client.height}
         loading="lazy"
-        className="h-20 w-auto max-w-full object-contain md:h-24 lg:h-28"
+        className="h-16 w-auto max-w-full object-contain sm:h-20 md:h-24 lg:h-28"
         unoptimized={client.src.endsWith(".svg")}
       />
     </div>
@@ -100,20 +100,23 @@ export function ClientsMarquee() {
     <div
       ref={ref}
       data-in-view={inView}
-      className="marquee-group relative w-full overflow-hidden pb-20 md:pb-24"
+      className="marquee-group relative w-full overflow-hidden pb-14 sm:pb-20 md:pb-24"
     >
       <div
-        className="marquee-mask flex flex-col gap-4 md:gap-6"
+        className="marquee-mask flex flex-col gap-3 sm:gap-4 md:gap-6"
         aria-label="Client logos"
       >
-        <ul className="marquee-track gap-4 md:gap-6">
+        <ul className="marquee-track gap-3 sm:gap-4 md:gap-6">
           {ROW_ONE.map((client, i) => (
             <li key={`row1-${client.src}-${i}`} aria-hidden={i >= CLIENTS.length}>
               <LogoCard client={client} />
             </li>
           ))}
         </ul>
-        <ul className="marquee-track-reverse gap-4 md:gap-6" aria-hidden="true">
+        <ul
+          className="marquee-track-reverse gap-3 sm:gap-4 md:gap-6"
+          aria-hidden="true"
+        >
           {ROW_TWO.map((client, i) => (
             <li key={`row2-${client.src}-${i}`}>
               <LogoCard client={client} />

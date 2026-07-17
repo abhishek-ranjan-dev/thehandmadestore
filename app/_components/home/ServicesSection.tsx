@@ -45,7 +45,7 @@ const SERVICES: Service[] = [
 function ServiceCard({ service }: { service: Service }) {
   return (
     <article className="group relative flex flex-col">
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-ths-sand/60">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-ths-sand/60 sm:aspect-[3/4]">
         <Image
           src={service.image.src}
           alt={service.image.alt}
@@ -58,13 +58,13 @@ function ServiceCard({ service }: { service: Service }) {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ths-ink/70 via-ths-ink/20 to-transparent"
         />
-        <div className="absolute inset-x-0 bottom-0 p-6 md:p-7">
-          <h3 className="font-display text-2xl leading-tight text-ths-cream md:text-3xl">
+        <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 md:p-7">
+          <h3 className="font-display text-xl leading-tight text-ths-cream sm:text-2xl md:text-3xl">
             {service.title}
           </h3>
         </div>
       </div>
-      <p className="mt-5 text-sm leading-relaxed text-ths-ink/75 md:text-base">
+      <p className="mt-4 text-sm leading-relaxed text-ths-ink/75 sm:mt-5 md:text-base">
         {service.description}
       </p>
     </article>
@@ -77,38 +77,38 @@ export function ServicesSection() {
       aria-labelledby="services-heading"
       className="w-full bg-ths-cream"
     >
-      <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-24">
-        <div className="rounded-3xl bg-gradient-to-br from-ths-clay/20 via-ths-sand/40 to-ths-cream px-6 py-16 md:px-14 md:py-20 lg:px-20 lg:py-24">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-10">
+      <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-16 md:px-10 md:py-24">
+        <div className="rounded-3xl bg-gradient-to-br from-ths-clay/20 via-ths-sand/40 to-ths-cream px-5 py-12 sm:px-6 sm:py-16 md:px-14 md:py-20 lg:px-20 lg:py-24">
+          <div className="flex flex-col gap-5 sm:gap-6 md:flex-row md:items-end md:justify-between md:gap-10">
             <div className="max-w-2xl">
-              <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
+              <p className="text-[11px] uppercase tracking-[0.35em] text-ths-earth sm:text-xs">
                 Our services
               </p>
               <h2
                 id="services-heading"
-                className="mt-4 font-display text-3xl leading-tight tracking-tight text-ths-ink md:text-4xl lg:text-5xl"
+                className="mt-3 font-display text-[1.75rem] leading-tight tracking-tight text-ths-ink sm:mt-4 sm:text-3xl md:text-4xl lg:text-5xl"
               >
                 Beyond the shelf,
                 <br />
                 <span className="text-ths-earth">gifting with intent.</span>
               </h2>
             </div>
-            <p className="max-w-md text-base leading-relaxed text-ths-ink/70 md:text-lg">
+            <p className="max-w-md text-[15px] leading-relaxed text-ths-ink/70 sm:text-base md:text-lg">
               Working with a team, a wedding, or a season? We put together
               hampers with the same care that goes into every piece we stock.
             </p>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 md:mt-16 md:gap-10 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-8 sm:mt-14 sm:grid-cols-2 md:mt-16 md:gap-10 lg:grid-cols-3">
             {SERVICES.map((service) => (
               <ServiceCard key={service.title} service={service} />
             ))}
           </div>
 
-          <div className="mt-14 flex justify-center md:mt-16">
+          <div className="mt-10 flex justify-center sm:mt-14 md:mt-16">
             <Link
               href="/services"
-              className="inline-flex items-center gap-3 border border-ths-ink px-8 py-3.5 text-xs uppercase tracking-[0.3em] text-ths-ink transition-colors duration-300 hover:bg-ths-ink hover:text-ths-cream"
+              className="inline-flex w-full items-center justify-center gap-3 border border-ths-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-ths-ink transition-colors duration-300 hover:bg-ths-ink hover:text-ths-cream sm:w-auto sm:py-3.5"
             >
               <span>Explore services</span>
               <span aria-hidden>→</span>

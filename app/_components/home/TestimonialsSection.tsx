@@ -78,15 +78,15 @@ export function TestimonialsSection() {
       aria-labelledby="testimonials-heading"
       className="w-full bg-ths-cream"
     >
-      <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-24">
-        <div className="rounded-3xl bg-gradient-to-br from-ths-sand/50 via-ths-cream to-ths-clay/15 px-6 py-14 md:px-14 md:py-20 lg:px-20">
+      <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-16 md:px-10 md:py-24">
+        <div className="rounded-3xl bg-gradient-to-br from-ths-sand/50 via-ths-cream to-ths-clay/15 px-5 py-12 sm:px-6 sm:py-14 md:px-14 md:py-20 lg:px-20">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
+            <p className="text-[11px] uppercase tracking-[0.35em] text-ths-earth sm:text-xs">
               Testimonials
             </p>
             <h2
               id="testimonials-heading"
-              className="mt-4 font-display text-3xl leading-tight tracking-tight text-ths-ink md:text-4xl lg:text-5xl"
+              className="mt-3 font-display text-[1.75rem] leading-tight tracking-tight text-ths-ink sm:mt-4 sm:text-3xl md:text-4xl lg:text-5xl"
             >
               Kind words from
               <br />
@@ -96,7 +96,7 @@ export function TestimonialsSection() {
             </h2>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-3 md:gap-5">
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-12 md:mt-16 md:grid-cols-3 md:gap-5">
             {TESTIMONIALS.map((t) => (
               <TestimonialCard key={t.author} testimonial={t} />
             ))}

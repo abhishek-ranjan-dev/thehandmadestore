@@ -56,24 +56,35 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-ths-line bg-ths-cream">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 py-16 md:grid-cols-12 md:px-10 md:py-20">
-        <div className="md:col-span-6">
+    <footer className="relative mt-auto overflow-hidden bg-gradient-to-br from-ths-sand via-ths-clay/45 to-ths-earth/35 text-ths-ink">
+      {/* Soft glow to smooth the transition from the cream page above */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ths-cream/70 to-transparent"
+      />
+      {/* Subtle radial warmth in the bottom-right for depth */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-ths-clay/25 blur-3xl"
+      />
+
+      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-2 gap-x-6 gap-y-10 px-5 py-14 sm:px-6 md:grid-cols-12 md:gap-12 md:px-10 md:py-20">
+        <div className="col-span-2 md:col-span-6">
           <Link href="/" className="inline-flex items-center gap-3">
-            <span className="relative block h-8 w-8">
+            <span className="relative block h-9 w-9 rounded-full bg-ths-cream/70 p-1.5 shadow-[0_2px_8px_-2px_rgba(23,17,13,0.15)]">
               <Image
                 src={BRAND_MARK}
                 alt=""
                 fill
-                sizes="32px"
-                className="object-contain"
+                sizes="36px"
+                className="object-contain p-1"
               />
             </span>
-            <span className="font-display text-base tracking-[0.2em] text-ths-ink">
+            <span className="font-display text-sm tracking-[0.2em] text-ths-ink sm:text-base">
               THE HAND MADE STORE
             </span>
           </Link>
-          <p className="mt-6 max-w-sm text-sm leading-relaxed text-ths-ink/75">
+          <p className="mt-5 max-w-sm text-sm leading-relaxed text-ths-ink/80 md:mt-6">
             A women-owned local business partnering with indigenous Indian
             craftsmen for handcrafted, ethical jewelry, home decor, and
             lifestyle products.
@@ -81,27 +92,27 @@ export function SiteFooter() {
           <a
             href="mailto:ths.thehandmadestore@gmail.com"
             aria-label="Email The Hand Made Store"
-            className="group mt-6 inline-flex items-center gap-3 text-sm text-ths-ink"
+            className="group mt-5 inline-flex max-w-full items-center gap-3 text-sm text-ths-ink md:mt-6"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-ths-ink/20 bg-white/60 text-ths-ink transition-all duration-300 group-hover:border-ths-ink/60 group-hover:bg-ths-ink group-hover:text-ths-cream">
+            <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full border border-ths-ink/25 bg-ths-cream/70 text-ths-ink transition-all duration-300 group-hover:border-ths-ink/60 group-hover:bg-ths-ink group-hover:text-ths-cream">
               <IconMail className="h-4 w-4" aria-hidden />
             </span>
-            <span className="border-b border-ths-ink/40 pb-0.5 transition-colors group-hover:border-ths-ink">
+            <span className="break-all border-b border-ths-ink/40 pb-0.5 text-left transition-colors group-hover:border-ths-ink">
               ths.thehandmadestore@gmail.com
             </span>
           </a>
         </div>
 
-        <div className="md:col-span-3">
-          <h3 className="text-[11px] uppercase tracking-[0.3em] text-ths-earth">
+        <div className="col-span-1 md:col-span-3">
+          <h3 className="text-[11px] uppercase tracking-[0.3em] text-ths-ink/60">
             Explore
           </h3>
-          <ul className="mt-5 space-y-3 text-sm text-ths-ink/85">
+          <ul className="mt-3 text-sm text-ths-ink/85 md:mt-5">
             {SITE_LINKS.map(({ label, href }) => (
               <li key={label}>
                 <Link
                   href={href}
-                  className="transition-colors hover:text-ths-ink hover:underline underline-offset-4"
+                  className="block py-2 transition-colors hover:text-ths-ink hover:underline underline-offset-4"
                 >
                   {label}
                 </Link>
@@ -110,11 +121,11 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div className="md:col-span-3">
-          <h3 className="text-[11px] uppercase tracking-[0.3em] text-ths-earth">
+        <div className="col-span-1 md:col-span-3">
+          <h3 className="text-[11px] uppercase tracking-[0.3em] text-ths-ink/60">
             Follow
           </h3>
-          <ul className="mt-5 space-y-3 text-sm text-ths-ink/85">
+          <ul className="mt-3 text-sm text-ths-ink/85 md:mt-5">
             {SOCIAL_LINKS.map(({ label, href, Icon }) => (
               <li key={label}>
                 <a
@@ -122,9 +133,9 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={label}
-                  className="group inline-flex items-center gap-3 transition-colors hover:text-ths-ink"
+                  className="group inline-flex items-center gap-3 py-2 transition-colors hover:text-ths-ink"
                 >
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-ths-ink/20 bg-white/60 text-ths-ink transition-all duration-300 group-hover:border-ths-ink/60 group-hover:bg-ths-ink group-hover:text-ths-cream">
+                  <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full border border-ths-ink/25 bg-ths-cream/70 text-ths-ink transition-all duration-300 group-hover:border-ths-ink/60 group-hover:bg-ths-ink group-hover:text-ths-cream">
                     <Icon className="h-4 w-4" aria-hidden />
                   </span>
                   <span className="transition-colors group-hover:underline underline-offset-4">
@@ -137,8 +148,8 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-ths-line">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-2 px-6 py-6 text-xs text-ths-ink/60 md:flex-row md:items-center md:px-10">
+      <div className="relative border-t border-ths-ink/15">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-2 px-5 py-5 text-xs text-ths-ink/70 sm:px-6 md:flex-row md:items-center md:px-10 md:py-6">
           <p>&copy; {year} The Hand Made Store. All rights reserved.</p>
           <p className="tracking-wide">Made in India &middot; Handcrafted with care.</p>
         </div>

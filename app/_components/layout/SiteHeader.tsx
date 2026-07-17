@@ -27,6 +27,11 @@ const NAV: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+// The desktop bar uses the logo as the home affordance, so Home is only
+// surfaced explicitly in the mobile drawer where no persistent logo click
+// target sits alongside the menu items.
+const MOBILE_NAV: NavItem[] = [{ label: "Home", href: "/" }, ...NAV];
+
 const IconMenu = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" strokeWidth={1.75} stroke="currentColor" {...props}>
     <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
@@ -90,7 +95,10 @@ function MobileDrawerNav({
   open: boolean;
 }) {
   return (
-    <nav aria-label="Mobile" className="flex flex-1 flex-col px-6 py-4">
+    <nav
+      aria-label="Mobile"
+      className="flex flex-1 flex-col overflow-y-auto px-5 py-3 sm:px-6 sm:py-4"
+    >
       {items.map(({ label, href, external }, i) => {
         const active = !external && pathname === href;
         return (
@@ -99,7 +107,7 @@ function MobileDrawerNav({
             href={href}
             {...(external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
             onClick={onNavigate}
-            className={`block py-4 font-display text-2xl text-ths-ink ${
+            className={`block py-3 font-display text-xl text-ths-ink sm:text-2xl ${
               open ? "animate-apple-fade-up" : "opacity-0"
             } ${active ? "underline underline-offset-4" : ""}`}
             style={{ animationDelay: open ? `${80 + i * 55}ms` : "0ms" }}
@@ -155,6 +163,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
+    <>
     <header
       className={`sticky top-0 z-40 border-b text-white transition-[background-color,backdrop-filter,border-color,box-shadow,padding] duration-500 ${
         scrolled
@@ -164,19 +173,21 @@ export function SiteHeader() {
       style={{ transitionTimingFunction: EASE_APPLE }}
     >
       <div
-        className={`mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-6 transition-[height] duration-500 md:px-10 ${
-          scrolled ? "h-16 md:h-20" : "h-20 md:h-24"
+        className={`mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 transition-[height] duration-500 sm:gap-6 sm:px-6 md:px-10 ${
+          scrolled ? "h-14 md:h-20" : "h-16 md:h-24"
         }`}
         style={{ transitionTimingFunction: EASE_APPLE }}
       >
         <Link
           href="/"
-          className="group flex items-center gap-3 transition-transform duration-500"
+          className="group flex min-w-0 items-center gap-2.5 transition-transform duration-500 sm:gap-3"
           style={{ transitionTimingFunction: EASE_APPLE_OUT }}
         >
           <span
-            className={`relative flex items-center justify-center overflow-hidden rounded-full border border-white/40 bg-white/95 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.35)] backdrop-blur transition-all duration-500 group-hover:scale-105 ${
-              scrolled ? "h-10 w-10" : "h-11 w-11 md:h-12 md:w-12"
+            className={`relative flex flex-none items-center justify-center overflow-hidden rounded-full border border-white/40 bg-white/95 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.35)] backdrop-blur transition-all duration-500 group-hover:scale-105 ${
+              scrolled
+                ? "h-9 w-9 md:h-10 md:w-10"
+                : "h-10 w-10 md:h-12 md:w-12"
             }`}
             style={{ transitionTimingFunction: EASE_APPLE_OUT }}
           >
@@ -185,20 +196,22 @@ export function SiteHeader() {
               alt=""
               width={40}
               height={36}
-              className="h-8 w-auto object-contain"
+              className="h-7 w-auto object-contain md:h-8"
             />
           </span>
-          <span className="flex flex-col leading-tight">
+          <span className="flex min-w-0 flex-col leading-tight">
             <span
-              className={`font-display tracking-wide text-white transition-[font-size] duration-500 ${
-                scrolled ? "text-base md:text-lg" : "text-lg md:text-xl"
+              className={`truncate font-display tracking-wide text-white transition-[font-size] duration-500 ${
+                scrolled
+                  ? "text-sm sm:text-base md:text-lg"
+                  : "text-base sm:text-lg md:text-xl"
               }`}
               style={{ transitionTimingFunction: EASE_APPLE }}
             >
               The Hand Made Store
             </span>
             <span
-              className={`overflow-hidden text-[10px] uppercase tracking-[0.3em] text-white/70 transition-[max-height,opacity] duration-500 ${
+              className={`hidden overflow-hidden text-[10px] uppercase tracking-[0.3em] text-white/70 transition-[max-height,opacity] duration-500 sm:block ${
                 scrolled ? "max-h-0 opacity-0" : "max-h-4 opacity-100"
               }`}
               style={{ transitionTimingFunction: EASE_APPLE }}
@@ -228,60 +241,61 @@ export function SiteHeader() {
             aria-label="Open navigation menu"
             aria-expanded={open}
             onClick={() => setOpen(true)}
-            className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-transparent text-white transition-all duration-300 hover:border-white/30 hover:bg-white/10 active:scale-95 lg:hidden"
+            className="-mr-1 inline-flex h-11 w-11 flex-none items-center justify-center rounded-full border border-transparent text-white transition-all duration-300 hover:border-white/30 hover:bg-white/10 active:scale-95 sm:-mr-2 lg:hidden"
             style={{ transitionTimingFunction: EASE_APPLE_OUT }}
           >
             <IconMenu className="h-6 w-6" />
           </button>
         </div>
       </div>
-
-      {/* Mobile drawer */}
-      <div
-        className={`fixed inset-0 z-50 lg:hidden ${open ? "" : "pointer-events-none"}`}
-        aria-hidden={!open}
-      >
-        <button
-          type="button"
-          aria-label="Close menu"
-          onClick={() => setOpen(false)}
-          className={`absolute inset-0 bg-ths-ink/30 backdrop-blur-sm transition-opacity duration-500 ${
-            open ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ transitionTimingFunction: EASE_APPLE }}
-          tabIndex={open ? 0 : -1}
-        />
-        <aside
-          role="dialog"
-          aria-modal="true"
-          aria-label="Site navigation"
-          className={`absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col border-l border-white/40 bg-ths-cream/85 shadow-2xl backdrop-blur-2xl backdrop-saturate-150 transition-transform duration-700 ${
-            open ? "translate-x-0" : "translate-x-full"
-          }`}
-          style={{ transitionTimingFunction: EASE_APPLE }}
-        >
-          <div className="flex items-center justify-between border-b border-ths-line/60 px-6 py-4">
-            <span className="font-display text-sm tracking-[0.2em] text-ths-ink">
-              MENU
-            </span>
-            <button
-              type="button"
-              aria-label="Close menu"
-              onClick={() => setOpen(false)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-transparent text-ths-ink transition-all duration-300 hover:border-ths-ink/20 hover:bg-ths-ink/5 active:scale-95"
-              style={{ transitionTimingFunction: EASE_APPLE_OUT }}
-            >
-              <IconClose className="h-6 w-6" />
-            </button>
-          </div>
-          <MobileDrawerNav
-            items={NAV}
-            pathname={pathname}
-            onNavigate={() => setOpen(false)}
-            open={open}
-          />
-        </aside>
-      </div>
     </header>
+
+    {/* Mobile drawer — sibling to <header> so `position: fixed` isn't trapped by the header's backdrop-filter containing block */}
+    <div
+      className={`fixed inset-0 z-50 lg:hidden ${open ? "" : "pointer-events-none"}`}
+      aria-hidden={!open}
+    >
+      <button
+        type="button"
+        aria-label="Close menu"
+        onClick={() => setOpen(false)}
+        className={`absolute inset-0 bg-ths-ink/30 backdrop-blur-sm transition-opacity duration-500 ${
+          open ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ transitionTimingFunction: EASE_APPLE }}
+        tabIndex={open ? 0 : -1}
+      />
+      <aside
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+        className={`absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col border-l border-white/40 bg-ths-cream/95 shadow-2xl backdrop-blur-2xl backdrop-saturate-150 transition-transform duration-700 ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+        style={{ transitionTimingFunction: EASE_APPLE }}
+      >
+        <div className="flex items-center justify-between border-b border-ths-line/60 px-5 py-3 sm:px-6 sm:py-4">
+          <span className="font-display text-sm tracking-[0.2em] text-ths-ink">
+            MENU
+          </span>
+          <button
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-transparent text-ths-ink transition-all duration-300 hover:border-ths-ink/20 hover:bg-ths-ink/5 active:scale-95"
+            style={{ transitionTimingFunction: EASE_APPLE_OUT }}
+          >
+            <IconClose className="h-6 w-6" />
+          </button>
+        </div>
+        <MobileDrawerNav
+          items={MOBILE_NAV}
+          pathname={pathname}
+          onNavigate={() => setOpen(false)}
+          open={open}
+        />
+      </aside>
+    </div>
+    </>
   );
 }

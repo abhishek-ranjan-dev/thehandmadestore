@@ -36,8 +36,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${display.variable} ${body.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-ths-cream text-ths-ink font-body">
+      <body
+        className="min-h-full flex flex-col bg-ths-cream text-ths-ink font-body"
+        suppressHydrationWarning
+      >
         <SiteHeader />
         <div className="flex flex-1 flex-col">{children}</div>
         <SiteFooter />

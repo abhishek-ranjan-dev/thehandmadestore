@@ -60,19 +60,19 @@ function ExploreCard({ card }: { card: Card }) {
           />
         </div>
       </Link>
-      <div className="mt-6 flex flex-col">
-        <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
+      <div className="mt-5 flex flex-col sm:mt-6">
+        <p className="text-[11px] uppercase tracking-[0.35em] text-ths-earth sm:text-xs">
           {card.eyebrow}
         </p>
-        <h3 className="mt-3 whitespace-pre-line font-display text-3xl leading-tight tracking-tight text-ths-ink md:text-4xl">
+        <h3 className="mt-2 whitespace-pre-line font-display text-[1.75rem] leading-tight tracking-tight text-ths-ink sm:mt-3 sm:text-3xl md:text-4xl">
           {card.title}
         </h3>
-        <p className="mt-4 max-w-md text-base leading-relaxed text-ths-ink/80 md:text-[0.975rem]">
+        <p className="mt-3 max-w-md text-[15px] leading-relaxed text-ths-ink/80 sm:mt-4 sm:text-base md:text-[0.975rem]">
           {card.body}
         </p>
         <Link
           href={card.href}
-          className="mt-6 inline-flex w-fit items-center gap-2 border-b border-ths-ink pb-1 text-xs uppercase tracking-[0.3em] text-ths-ink transition-opacity duration-300 hover:opacity-60"
+          className="mt-5 inline-flex w-fit items-center gap-2 border-b border-ths-ink pb-1 text-xs uppercase tracking-[0.3em] text-ths-ink transition-opacity duration-300 hover:opacity-60 sm:mt-6"
         >
           {card.cta}
           <span aria-hidden>&rarr;</span>
@@ -88,14 +88,14 @@ export function HomeExplore() {
       aria-labelledby="home-explore-heading"
       className="w-full bg-ths-cream"
     >
-      <div className="mx-auto w-full max-w-7xl px-6 py-20 md:px-10 md:py-28">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 sm:py-20 md:px-10 md:py-28">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-ths-earth sm:text-xs">
             Beyond the shop
           </p>
           <h2
             id="home-explore-heading"
-            className="mt-3 font-display text-4xl leading-tight tracking-tight text-ths-ink md:text-5xl"
+            className="mt-2 font-display text-3xl leading-tight tracking-tight text-ths-ink sm:mt-3 sm:text-4xl md:text-5xl"
           >
             The hands and the
             <br />
@@ -103,7 +103,7 @@ export function HomeExplore() {
           </h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-12 md:mt-20 md:grid-cols-2 md:gap-16">
+        <div className="mt-10 grid grid-cols-1 gap-10 sm:mt-14 sm:gap-12 md:mt-20 md:grid-cols-2 md:gap-16">
           {CARDS.map((card) => (
             <ExploreCard key={card.href} card={card} />
           ))}

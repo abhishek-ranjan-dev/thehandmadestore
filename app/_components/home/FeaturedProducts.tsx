@@ -92,7 +92,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               src={product.image}
               alt={product.alt}
               fill
-              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 50vw"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               style={{
                 objectPosition: product.objectPosition ?? "50% 50%",
@@ -102,16 +102,16 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             />
           </div>
           {product.ribbon ? (
-            <span className="absolute left-4 top-4 inline-flex items-center bg-ths-cream/95 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-ths-ink">
+            <span className="absolute left-2.5 top-2.5 inline-flex items-center bg-ths-cream/95 px-2 py-0.5 text-[9px] uppercase tracking-[0.28em] text-ths-ink sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-[10px] sm:tracking-[0.3em]">
               {product.ribbon}
             </span>
           ) : null}
         </div>
-        <div className="mt-5 flex items-start justify-between gap-4">
-          <h3 className="font-display text-lg leading-snug text-ths-ink md:text-xl">
+        <div className="mt-3 flex items-start justify-between gap-2 sm:mt-5 sm:gap-4">
+          <h3 className="font-display text-sm leading-snug text-ths-ink sm:text-lg md:text-xl">
             {product.name}
           </h3>
-          <span className="whitespace-nowrap pt-1 text-sm text-ths-ink/70 md:text-base">
+          <span className="whitespace-nowrap pt-0.5 text-xs text-ths-ink/70 sm:pt-1 sm:text-sm md:text-base">
             {product.price}
           </span>
         </div>
@@ -127,15 +127,15 @@ export function FeaturedProducts() {
       aria-labelledby="featured-products-heading"
       className="w-full bg-ths-cream"
     >
-      <div className="mx-auto w-full max-w-7xl px-6 py-20 md:px-10 md:py-28">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:items-end md:gap-16">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 sm:py-20 md:px-10 md:py-28">
+        <div className="grid grid-cols-1 gap-6 sm:gap-10 md:grid-cols-12 md:items-end md:gap-16">
           <div className="md:col-span-6">
-            <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
+            <p className="text-[11px] uppercase tracking-[0.35em] text-ths-earth sm:text-xs">
               The shop
             </p>
             <h2
               id="featured-products-heading"
-              className="mt-4 font-display text-4xl leading-tight tracking-tight text-ths-ink md:text-5xl lg:text-6xl"
+              className="mt-3 font-display text-3xl leading-tight tracking-tight text-ths-ink sm:mt-4 sm:text-4xl md:text-5xl lg:text-6xl"
             >
               Made by hand.
               <br />
@@ -143,7 +143,7 @@ export function FeaturedProducts() {
             </h2>
           </div>
           <div className="md:col-span-5 md:col-start-8">
-            <p className="text-base leading-relaxed text-ths-ink/80 md:text-lg">
+            <p className="text-[15px] leading-relaxed text-ths-ink/80 sm:text-base md:text-lg">
               A short selection from our shop &mdash; hampers, plantable
               stationery, and everyday pieces we&rsquo;re proud of. Every item
               is made with the artisan communities we work with, in small,
@@ -152,16 +152,16 @@ export function FeaturedProducts() {
           </div>
         </div>
 
-        <ul className="mt-14 grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 md:mt-20 md:gap-x-8 lg:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:mt-14 sm:gap-x-6 sm:gap-y-14 md:mt-20 md:gap-x-8 lg:grid-cols-3">
           {PRODUCTS.map((product, index) => (
             <ProductCard key={product.href} product={product} index={index} />
           ))}
         </ul>
 
-        <div className="mt-16 flex justify-center md:mt-20">
+        <div className="mt-12 flex justify-center sm:mt-16 md:mt-20">
           <Link
             href={SHOP_URL}
-            className="group inline-flex items-center gap-3 border border-ths-ink bg-ths-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-ths-cream transition-colors duration-300 hover:bg-transparent hover:text-ths-ink"
+            className="group inline-flex w-full items-center justify-center gap-3 border border-ths-ink bg-ths-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-ths-cream transition-colors duration-300 hover:bg-transparent hover:text-ths-ink sm:w-auto"
           >
             Explore all products
             <span
