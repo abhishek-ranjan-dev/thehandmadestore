@@ -113,18 +113,17 @@ export function ContactLocation() {
                   <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/70 text-ths-ink backdrop-blur">
                     <IconClock className="h-5 w-5" aria-hidden />
                   </span>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-[10px] uppercase tracking-[0.3em] text-ths-earth">
                       Working hours
                     </p>
-                    <dl className="mt-2 space-y-1 text-base text-ths-ink/85">
+                    <dl className="mt-3 space-y-3">
                       {HOURS.map(({ day, value }) => (
-                        <div
-                          key={day}
-                          className="flex items-baseline justify-between gap-4"
-                        >
-                          <dt>{day}</dt>
-                          <dd className="font-display text-ths-ink">{value}</dd>
+                        <div key={day} className="flex flex-col gap-0.5">
+                          <dt className="text-sm text-ths-ink/60">{day}</dt>
+                          <dd className="font-display text-lg leading-tight text-ths-ink md:text-xl">
+                            {value}
+                          </dd>
                         </div>
                       ))}
                     </dl>
