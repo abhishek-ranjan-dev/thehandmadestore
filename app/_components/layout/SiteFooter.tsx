@@ -9,8 +9,8 @@ const SITE_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about-us" },
   { label: "Meet Our Artisans", href: "/artisans" },
-  { label: "Gifting", href: "/gifting" },
-  { label: "The Hand Made Diaries", href: "/the-handmade-diaries" },
+  { label: "Services", href: "/gifting" },
+  { label: "Blog", href: "/the-handmade-diaries" },
   { label: "Contact", href: "/contact" },
 ];
 

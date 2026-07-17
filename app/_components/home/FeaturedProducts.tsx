@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const EASE_APPLE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
 
-const SHOP_URL = "https://thehandmadestore.co.in/category/all-products";
+const SHOP_URL = "/products";
 
 type Product = {
   name: string;
@@ -161,8 +161,6 @@ export function FeaturedProducts() {
         <div className="mt-16 flex justify-center md:mt-20">
           <Link
             href={SHOP_URL}
-            target="_blank"
-            rel="noreferrer noopener"
             className="group inline-flex items-center gap-3 border border-ths-ink bg-ths-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-ths-cream transition-colors duration-300 hover:bg-transparent hover:text-ths-ink"
           >
             Explore all products

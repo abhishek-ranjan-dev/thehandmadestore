@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 const BRAND_MARK =
   "https://static.wixstatic.com/media/3581e8_bd79e60756984a8db3e9cb306751552c~mv2.png/v1/fill/w_120,h_108,al_c,q_85,enc_avif,quality_auto/mark.png";
 
-const SHOP_URL = "https://thehandmadestore.co.in";
+const SHOP_URL = "/products";
 
 const EASE_APPLE = "cubic-bezier(0.32, 0.72, 0, 1)";
 const EASE_APPLE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
@@ -22,8 +22,8 @@ type NavItem = {
 const NAV: NavItem[] = [
   { label: "About Us", href: "/about-us" },
   { label: "Meet Our Artisans", href: "/artisans" },
-  { label: "Gifting", href: "/gifting" },
-  { label: "The Hand Made Diaries", href: "/the-handmade-diaries" },
+  { label: "Services", href: "/gifting" },
+  { label: "Blog", href: "/the-handmade-diaries" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -108,10 +108,8 @@ function MobileDrawerNav({
           </Link>
         );
       })}
-      <a
+      <Link
         href={SHOP_URL}
-        target="_blank"
-        rel="noreferrer noopener"
         onClick={onNavigate}
         className={`mt-6 inline-flex w-full items-center justify-center rounded-full border border-white/40 bg-ths-ink/95 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ths-cream shadow-lg backdrop-blur transition-transform duration-300 active:scale-[0.97] ${
           open ? "animate-apple-fade-up" : "opacity-0"
@@ -122,7 +120,7 @@ function MobileDrawerNav({
         }}
       >
         Shop Now
-      </a>
+      </Link>
     </nav>
   );
 }
@@ -213,10 +211,8 @@ export function SiteHeader() {
         <DesktopNav items={NAV} pathname={pathname} />
 
         <div className="flex items-center gap-3">
-          <a
+          <Link
             href={SHOP_URL}
-            target="_blank"
-            rel="noreferrer noopener"
             className="group relative hidden overflow-hidden rounded-full border border-white/50 bg-white/90 px-5 py-2.5 text-sm font-semibold text-ths-ink shadow-[0_6px_20px_-8px_rgba(0,0,0,0.35)] backdrop-blur-lg transition-all duration-500 hover:bg-white hover:shadow-[0_10px_28px_-8px_rgba(0,0,0,0.45)] active:scale-[0.97] md:inline-flex md:px-6 md:py-3"
             style={{ transitionTimingFunction: EASE_APPLE_OUT }}
           >
@@ -226,7 +222,7 @@ export function SiteHeader() {
               style={{ transitionTimingFunction: EASE_APPLE_OUT }}
             />
             <span className="relative">Shop Now</span>
-          </a>
+          </Link>
           <button
             type="button"
             aria-label="Open navigation menu"
