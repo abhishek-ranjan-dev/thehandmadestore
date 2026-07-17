@@ -18,10 +18,19 @@ export const metadata: Metadata = {
     url: "/about-us",
     siteName: "The Hand Made Store",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "About The Hand Made Store",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "About Us | The Hand Made Store",
+    images: ["/opengraph-image"],
   },
 };
 

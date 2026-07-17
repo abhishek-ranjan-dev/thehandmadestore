@@ -53,21 +53,21 @@ export function ContactLocation() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ths-cream/70 via-ths-sand/60 to-ths-cream/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ths-ink/70 via-ths-ink/55 to-ths-ink/75" />
       </div>
 
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-6 py-20 md:grid-cols-12 md:gap-16 md:px-10 md:py-28">
         <div className="md:col-span-5">
-          <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
+          <p className="text-xs uppercase tracking-[0.35em] text-ths-clay">
             Come by &amp; say hi
           </p>
           <h2
             id="visit-heading"
-            className="mt-3 font-display text-3xl leading-tight tracking-tight text-ths-ink md:text-4xl lg:text-5xl"
+            className="mt-3 font-display text-3xl leading-tight tracking-tight text-ths-cream md:text-4xl lg:text-5xl"
           >
             Visit the studio.
           </h2>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-ths-ink/80 md:text-lg">
+          <p className="mt-5 max-w-md text-base leading-relaxed text-ths-cream/85 md:text-lg">
             Stop by to see the craft up close &mdash; our workshop is where
             every piece begins.
           </p>

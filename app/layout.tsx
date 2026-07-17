@@ -3,6 +3,7 @@ import { Marcellus, Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/app/_components/layout/SiteHeader";
 import { SiteFooter } from "@/app/_components/layout/SiteFooter";
+import { StructuredData } from "@/app/_components/seo/StructuredData";
 
 const display = Marcellus({
   variable: "--font-display",
@@ -17,14 +18,59 @@ const body = Inter({
   display: "swap",
 });
 
+const SITE_URL = "https://www.thehandmadestore.co.in";
+const SITE_DESCRIPTION =
+  "A women-owned local business partnering with indigenous Indian artisans for handcrafted, ethical jewelry, home decor, and lifestyle products.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.thehandmadestore.co.in"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "The Hand Made Store",
+    default:
+      "The Hand Made Store — Handcrafted, Ethical Products from Indian Artisans",
     template: "%s | The Hand Made Store",
   },
-  description:
-    "Handcrafted, ethical products from indigenous Indian artisans. A women-owned local business in jewelry, home decor, and lifestyle.",
+  description: SITE_DESCRIPTION,
+  applicationName: "The Hand Made Store",
+  authors: [{ name: "The Hand Made Store" }],
+  creator: "The Hand Made Store",
+  publisher: "The Hand Made Store",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: SITE_URL,
+    siteName: "The Hand Made Store",
+    title:
+      "The Hand Made Store — Handcrafted, Ethical Products from Indian Artisans",
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "The Hand Made Store — Handcrafted, Ethical Products from Indian Artisans",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Hand Made Store",
+    description: SITE_DESCRIPTION,
+    creator: "@thehandmadestore",
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  category: "shopping",
 };
 
 export default function RootLayout({
@@ -42,6 +88,7 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-ths-cream text-ths-ink font-body"
         suppressHydrationWarning
       >
+        <StructuredData />
         <SiteHeader />
         <div className="flex flex-1 flex-col">{children}</div>
         <SiteFooter />

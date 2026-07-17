@@ -78,7 +78,7 @@ export function CorporateInquiry() {
     <section
       id="inquiry"
       aria-labelledby="inquiry-heading"
-      className="w-full bg-ths-sand"
+      className="w-full bg-ths-cream"
     >
       <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-24">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">

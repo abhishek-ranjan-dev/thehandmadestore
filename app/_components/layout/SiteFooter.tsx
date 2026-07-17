@@ -57,11 +57,6 @@ export function SiteFooter() {
 
   return (
     <footer className="relative mt-auto overflow-hidden bg-gradient-to-br from-ths-sand via-ths-clay/45 to-ths-earth/35 text-ths-ink">
-      {/* Soft glow to smooth the transition from the cream page above */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ths-cream/70 to-transparent"
-      />
       {/* Subtle radial warmth in the bottom-right for depth */}
       <div
         aria-hidden
