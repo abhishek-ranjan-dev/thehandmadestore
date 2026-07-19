@@ -5,7 +5,7 @@ export function HeroDivider() {
   return (
     <section
       aria-labelledby="hero-divider-quote"
-      className="relative h-[60vh] min-h-[420px] w-full overflow-hidden bg-ths-earth bg-scroll bg-cover md:h-[75vh] md:bg-fixed"
+      className="relative h-[55vh] min-h-[380px] w-full overflow-hidden bg-ths-earth bg-scroll bg-cover md:h-[75vh] md:min-h-0 md:bg-fixed"
       style={{
         backgroundImage: `url(${HERO_BAND})`,
         backgroundPosition: "54% 34%",
@@ -22,7 +22,7 @@ export function HeroDivider() {
       />
 
       {/* pull-quote */}
-      <div className="absolute inset-x-0 bottom-0 px-6 pb-14 md:px-12 md:pb-20 lg:px-20 lg:pb-24">
+      <div className="absolute inset-x-0 bottom-0 px-5 pb-10 sm:px-6 sm:pb-14 md:px-12 md:pb-20 lg:px-20 lg:pb-24">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-4">
           <span className="text-[11px] uppercase tracking-[0.4em] text-ths-cream/80">
             The Hands Behind the Craft

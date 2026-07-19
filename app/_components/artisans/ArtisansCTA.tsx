@@ -4,7 +4,7 @@ export function ArtisansCTA() {
   return (
     <section
       aria-labelledby="artisans-cta-heading"
-      className="relative isolate w-full overflow-hidden bg-ths-ink"
+      className="relative isolate mb-14 w-full overflow-hidden bg-ths-ink md:mb-20"
     >
       <span
         aria-hidden
@@ -15,7 +15,7 @@ export function ArtisansCTA() {
         className="pointer-events-none absolute -right-24 bottom-0 h-[24rem] w-[24rem] rounded-full bg-ths-clay/15 blur-[100px]"
       />
 
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-12 md:gap-16 md:px-10 md:py-28">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-5 py-14 sm:gap-12 sm:px-6 sm:py-16 md:grid-cols-12 md:gap-16 md:px-10 md:py-28">
         <div className="md:col-span-7">
           <p className="text-xs uppercase tracking-[0.35em] text-ths-clay">
             The everyday, made by hand
@@ -31,7 +31,7 @@ export function ArtisansCTA() {
         </div>
 
         <div className="flex flex-col justify-end md:col-span-5">
-          <p className="text-base leading-relaxed text-ths-cream/80 md:text-lg">
+          <p className="text-[15px] leading-relaxed text-ths-cream/80 sm:text-base md:text-lg">
             Every piece in the store carries a name and a place. If you
             &rsquo;d like to know more about the makers behind a specific
             product, or work with us on a commission, we&rsquo;d love to hear

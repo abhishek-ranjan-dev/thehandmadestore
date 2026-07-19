@@ -148,9 +148,9 @@ export function ContactFormSection() {
     <section
       id="contact-form"
       aria-labelledby="contact-form-heading"
-      className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20"
+      className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20"
     >
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+      <div className="grid grid-cols-1 gap-10 sm:gap-12 md:grid-cols-12 md:gap-16">
         <div className="md:col-span-5">
           <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
             Customer Service
@@ -161,12 +161,12 @@ export function ContactFormSection() {
           >
             Questions? Feedback? Custom orders?
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-ths-ink/75 md:text-lg">
+          <p className="mt-5 text-[15px] leading-relaxed text-ths-ink/75 sm:text-base md:text-lg">
             For questions about our products and services, drop us a line and
             we&rsquo;ll get back to you as soon as we can.
           </p>
 
-          <ul className="mt-10 space-y-4">
+          <ul className="mt-8 space-y-3 sm:mt-10 sm:space-y-4">
             <li>
               <a
                 href={`mailto:${EMAIL}`}
@@ -180,7 +180,7 @@ export function ContactFormSection() {
                   <span className="text-[10px] uppercase tracking-[0.3em] text-ths-earth">
                     Email
                   </span>
-                  <span className="mt-1 text-sm text-ths-ink underline decoration-ths-ink/40 underline-offset-4 md:text-base">
+                  <span className="mt-1 break-all text-sm text-ths-ink underline decoration-ths-ink/40 underline-offset-4 md:text-base">
                     {EMAIL}
                   </span>
                 </span>
@@ -217,7 +217,7 @@ export function ContactFormSection() {
 
         <div className="md:col-span-7">
           <div
-            className="group relative overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-white/75 via-white/50 to-ths-sand/40 p-8 shadow-[0_20px_50px_-25px_rgba(23,17,13,0.4)] backdrop-blur-xl md:p-12"
+            className="group relative overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-white/75 via-white/50 to-ths-sand/40 p-6 sm:p-8 shadow-[0_20px_50px_-25px_rgba(23,17,13,0.4)] backdrop-blur-xl md:p-12"
           >
             <span
               aria-hidden
@@ -256,7 +256,7 @@ export function ContactFormSection() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="relative space-y-8">
+              <form onSubmit={handleSubmit} className="relative space-y-6 sm:space-y-8">
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
                   <Field
                     id="firstName"

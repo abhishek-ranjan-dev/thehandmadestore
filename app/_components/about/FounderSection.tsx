@@ -11,7 +11,7 @@ export function FounderSection() {
     <section
       id="founder"
       aria-labelledby="founder-heading"
-      className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-14 px-6 pt-12 pb-16 md:grid-cols-2 md:gap-20 md:px-10 md:pt-16 lg:pt-20"
+      className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-5 pt-24 pb-14 sm:gap-14 sm:px-6 sm:pt-28 sm:pb-16 md:grid-cols-2 md:gap-20 md:px-10 md:pt-32 lg:pt-36"
     >
       <div className="order-2 flex flex-col justify-center md:order-1">
         <p className="mb-4 text-xs uppercase tracking-[0.35em] text-ths-earth">
@@ -26,7 +26,7 @@ export function FounderSection() {
         <p className="mt-3 text-sm uppercase tracking-[0.2em] text-ths-moss">
           NIFT Textile Designer &middot; Sustainable Lifestyle Advocate
         </p>
-        <div className="mt-8 space-y-5 text-base leading-relaxed text-ths-ink/85 md:text-lg">
+        <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-ths-ink/85 sm:mt-8 sm:space-y-5 sm:text-base md:text-lg">
           <p>
             A Textile Designer from NIFT on a journey to promote and adapt a
             sustainable lifestyle and conscious living. At the age of 21 she
@@ -44,7 +44,7 @@ export function FounderSection() {
           </p>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-8 sm:mt-10">
           <a
             href={FOUNDER_PORTFOLIO}
             target="_blank"

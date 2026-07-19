@@ -66,7 +66,7 @@ export function HeroStats() {
   }, []);
 
   return (
-    <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-ths-cream/25 pt-8">
+    <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-ths-cream/25 pt-6 sm:mt-10 sm:gap-6 sm:pt-8">
       <StatCell label="Since" delay={0} visible={started}>
         <span aria-label="2019">{since}</span>
       </StatCell>

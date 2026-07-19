@@ -80,8 +80,8 @@ export function CorporateInquiry() {
       aria-labelledby="inquiry-heading"
       className="w-full bg-ths-cream"
     >
-      <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-24">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 sm:py-16 md:px-10 md:py-24">
+        <div className="grid grid-cols-1 gap-10 sm:gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
             <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
               Start a Project
@@ -92,7 +92,7 @@ export function CorporateInquiry() {
             >
               Tell us about your gifting.
             </h2>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-ths-ink/80 md:text-lg">
+            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ths-ink/80 sm:text-base md:text-lg">
               Share a few details and our team will get back within one
               business day with concepts, samples, and pricing tailored to
               your brand.
@@ -107,7 +107,7 @@ export function CorporateInquiry() {
           </div>
 
           <div className="md:col-span-7">
-            <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-white/85 via-white/60 to-ths-cream/60 p-8 shadow-[0_25px_60px_-25px_rgba(23,17,13,0.35)] backdrop-blur-xl md:p-12">
+            <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-white/85 via-white/60 to-ths-cream/60 p-6 sm:p-8 shadow-[0_25px_60px_-25px_rgba(23,17,13,0.35)] backdrop-blur-xl md:p-12">
               <span
                 aria-hidden
                 className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-gradient-to-br from-ths-clay/30 to-transparent blur-3xl"
@@ -146,7 +146,7 @@ export function CorporateInquiry() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="relative space-y-8">
+                <form onSubmit={handleSubmit} className="relative space-y-6 sm:space-y-8">
                   <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
                     <FieldWrapper id="company" label="Entity name" required>
                       <input

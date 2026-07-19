@@ -75,9 +75,9 @@ export function ValuesGrid() {
       aria-labelledby="values-heading"
       className="w-full"
     >
-      <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20">
         <div
-          className="group relative overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-white/70 via-ths-sand/60 to-ths-clay/25 px-6 py-14 shadow-[0_20px_50px_-25px_rgba(23,17,13,0.4)] backdrop-blur-xl md:px-14 md:py-20"
+          className="group relative overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-white/70 via-ths-sand/60 to-ths-clay/25 px-5 py-12 sm:px-6 sm:py-14 shadow-[0_20px_50px_-25px_rgba(23,17,13,0.4)] backdrop-blur-xl md:px-14 md:py-20"
         >
           <span
             aria-hidden
@@ -98,25 +98,25 @@ export function ValuesGrid() {
             >
               Our Values
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-ths-ink/75">
+            <p className="mt-4 text-[15px] leading-relaxed text-ths-ink/75 sm:text-base">
               As an eco-conscious brand, a small set of fundamentals shapes every
               product &mdash; from source to shelf.
             </p>
           </div>
 
-          <ul className="relative mx-auto mt-14 grid max-w-5xl grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-6">
+          <ul className="relative mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-x-6 gap-y-10 sm:mt-14 sm:grid-cols-3 sm:gap-y-12 lg:grid-cols-6">
             {VALUES.map(({ label, Icon }) => (
               <li
                 key={label}
                 className="group/item flex flex-col items-center gap-4 text-center"
               >
                 <span
-                  className="flex h-16 w-16 items-center justify-center rounded-full border border-white/70 bg-white/60 text-ths-ink shadow-sm backdrop-blur transition-all duration-500 group-hover/item:-translate-y-1 group-hover/item:border-ths-earth/50 group-hover/item:bg-ths-ink group-hover/item:text-ths-cream group-hover/item:shadow-[0_12px_25px_-12px_rgba(23,17,13,0.5)]"
+                  className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border border-white/70 bg-white/60 text-ths-ink shadow-sm backdrop-blur transition-all duration-500 group-hover/item:-translate-y-1 group-hover/item:border-ths-earth/50 group-hover/item:bg-ths-ink group-hover/item:text-ths-cream group-hover/item:shadow-[0_12px_25px_-12px_rgba(23,17,13,0.5)]"
                   style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
                 >
-                  <Icon className="h-8 w-8" aria-hidden />
+                  <Icon className="h-7 w-7 sm:h-8 sm:w-8" aria-hidden />
                 </span>
-                <span className="font-display text-base leading-snug text-ths-ink">
+                <span className="font-display text-sm leading-snug text-ths-ink sm:text-base">
                   {label}
                 </span>
               </li>

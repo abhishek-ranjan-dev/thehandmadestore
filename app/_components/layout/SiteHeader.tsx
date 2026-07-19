@@ -165,16 +165,13 @@ export function SiteHeader() {
   return (
     <>
     <header
-      className={`sticky top-0 z-40 border-b text-white transition-[background-color,backdrop-filter,border-color,box-shadow,padding] duration-500 ${
-        scrolled
-          ? "bg-ths-teal/80 backdrop-blur-2xl backdrop-saturate-150 border-white/15 shadow-[0_6px_30px_-12px_rgba(0,0,0,0.35)]"
-          : "bg-ths-teal/70 backdrop-blur-xl backdrop-saturate-150 border-white/10 shadow-none"
-      }`}
-      style={{ transitionTimingFunction: EASE_APPLE }}
+      className="fixed inset-x-0 top-2 z-40 px-2 text-white sm:top-3 sm:px-3 md:top-4 md:px-4"
     >
       <div
-        className={`mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 transition-[height] duration-500 sm:gap-6 sm:px-6 md:px-10 ${
-          scrolled ? "h-14 md:h-20" : "h-16 md:h-24"
+        className={`mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-3 rounded-full border px-4 transition-[background-color,backdrop-filter,border-color,box-shadow] duration-500 sm:gap-6 sm:px-6 md:h-20 md:px-8 ${
+          scrolled
+            ? "border-white/20 bg-ths-teal/80 shadow-[0_10px_36px_-14px_rgba(0,0,0,0.45)] backdrop-blur-2xl backdrop-saturate-150"
+            : "border-white/15 bg-ths-teal/70 shadow-[0_6px_24px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl backdrop-saturate-150"
         }`}
         style={{ transitionTimingFunction: EASE_APPLE }}
       >
@@ -184,11 +181,7 @@ export function SiteHeader() {
           style={{ transitionTimingFunction: EASE_APPLE_OUT }}
         >
           <span
-            className={`relative flex flex-none items-center justify-center overflow-hidden rounded-full border border-white/40 bg-white/95 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.35)] backdrop-blur transition-all duration-500 group-hover:scale-105 ${
-              scrolled
-                ? "h-9 w-9 md:h-10 md:w-10"
-                : "h-10 w-10 md:h-12 md:w-12"
-            }`}
+            className="relative flex h-9 w-9 flex-none items-center justify-center overflow-hidden rounded-full border border-white/40 bg-white/95 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.35)] backdrop-blur transition-transform duration-500 group-hover:scale-105 md:h-11 md:w-11"
             style={{ transitionTimingFunction: EASE_APPLE_OUT }}
           >
             <Image
@@ -196,26 +189,14 @@ export function SiteHeader() {
               alt=""
               width={40}
               height={36}
-              className="h-7 w-auto object-contain md:h-8"
+              className="h-6 w-auto object-contain md:h-8"
             />
           </span>
           <span className="flex min-w-0 flex-col leading-tight">
-            <span
-              className={`truncate font-display tracking-wide text-white transition-[font-size] duration-500 ${
-                scrolled
-                  ? "text-sm sm:text-base md:text-lg"
-                  : "text-base sm:text-lg md:text-xl"
-              }`}
-              style={{ transitionTimingFunction: EASE_APPLE }}
-            >
+            <span className="truncate font-display text-base tracking-wide text-white sm:text-lg md:text-xl">
               The Hand Made Store
             </span>
-            <span
-              className={`hidden overflow-hidden text-[10px] uppercase tracking-[0.3em] text-white/70 transition-[max-height,opacity] duration-500 sm:block ${
-                scrolled ? "max-h-0 opacity-0" : "max-h-4 opacity-100"
-              }`}
-              style={{ transitionTimingFunction: EASE_APPLE }}
-            >
+            <span className="hidden text-[10px] uppercase tracking-[0.3em] text-white/70 sm:block">
               Handcrafted &middot; Ethical
             </span>
           </span>
@@ -226,7 +207,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <Link
             href={SHOP_URL}
-            className="group relative hidden overflow-hidden rounded-full border border-white/50 bg-white/90 px-5 py-2.5 text-sm font-semibold text-ths-ink shadow-[0_6px_20px_-8px_rgba(0,0,0,0.35)] backdrop-blur-lg transition-all duration-500 hover:bg-white hover:shadow-[0_10px_28px_-8px_rgba(0,0,0,0.45)] active:scale-[0.97] md:inline-flex md:px-6 md:py-3"
+            className="group relative hidden overflow-hidden rounded-full border border-white/50 bg-white/90 px-5 py-2 text-sm font-semibold text-ths-ink shadow-[0_6px_20px_-8px_rgba(0,0,0,0.35)] backdrop-blur-lg transition-all duration-500 hover:bg-white hover:shadow-[0_10px_28px_-8px_rgba(0,0,0,0.45)] active:scale-[0.97] md:inline-flex md:px-6 md:py-2.5"
             style={{ transitionTimingFunction: EASE_APPLE_OUT }}
           >
             <span

@@ -2,7 +2,7 @@ export function ContactHero() {
   return (
     <section
       aria-labelledby="contact-hero-heading"
-      className="mx-auto w-full max-w-7xl px-6 pt-12 pb-8 md:px-10 md:pt-20 lg:pt-24"
+      className="mx-auto w-full max-w-7xl px-5 pt-24 pb-8 sm:px-6 sm:pt-28 md:px-10 md:pt-32 lg:pt-36"
     >
       <div className="mx-auto max-w-3xl text-center">
         <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
@@ -14,7 +14,7 @@ export function ContactHero() {
         >
           We&rsquo;d love to hear from you.
         </h1>
-        <p className="mt-6 text-base leading-relaxed text-ths-ink/75 md:text-lg">
+        <p className="mt-5 text-[15px] leading-relaxed text-ths-ink/75 sm:mt-6 sm:text-base md:text-lg">
           We love our customers. Reach out anytime &mdash; we&rsquo;re available
           via email, live chat, or the form below.
         </p>

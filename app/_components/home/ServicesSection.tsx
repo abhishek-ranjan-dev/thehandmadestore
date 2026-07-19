@@ -16,7 +16,7 @@ const SERVICES: Service[] = [
   {
     title: "Corporate Gifting",
     description:
-      "Thoughtful hampers built around your brand — sustainable, story-led, and delivered at scale.",
+      "Wedding trousseaus, return gifts, or private orders — hand-picked with you, made with our makers.",
     image: {
       src: "https://static.wixstatic.com/media/dc7de4_8c7add10f3fb4d21b2d5d34c6803e7eb~mv2.png/v1/fill/w_720,h_960,al_c,q_90,enc_avif,quality_auto/service-corporate.png",
       alt: "Corporate gifting hamper",
@@ -34,7 +34,7 @@ const SERVICES: Service[] = [
   {
     title: "Custom Curations",
     description:
-      "Wedding trousseaus, return gifts, or private orders — hand-picked with you, made with our makers.",
+      "Thoughtful hampers built around your brand — sustainable, story-led, and delivered at scale.",
     image: {
       src: "https://static.wixstatic.com/media/dc7de4_4170fa86630942e0b820adf7fbb0cd43~mv2.png/v1/fill/w_720,h_960,al_c,q_90,enc_avif,quality_auto/service-custom.png",
       alt: "Custom curated gift box",
@@ -44,7 +44,7 @@ const SERVICES: Service[] = [
 
 function ServiceCard({ service }: { service: Service }) {
   return (
-    <article className="group relative flex flex-col">
+    <article className="group relative flex flex-col" aria-label={service.title}>
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-ths-sand/60 sm:aspect-[3/4]">
         <Image
           src={service.image.src}
@@ -54,15 +54,6 @@ function ServiceCard({ service }: { service: Service }) {
           className="object-cover transition-transform duration-[900ms] group-hover:scale-[1.06]"
           style={{ transitionTimingFunction: EASE_APPLE_OUT }}
         />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ths-ink/70 via-ths-ink/20 to-transparent"
-        />
-        <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 md:p-7">
-          <h3 className="font-display text-xl leading-tight text-ths-cream sm:text-2xl md:text-3xl">
-            {service.title}
-          </h3>
-        </div>
       </div>
       <p className="mt-4 text-sm leading-relaxed text-ths-ink/75 sm:mt-5 md:text-base">
         {service.description}

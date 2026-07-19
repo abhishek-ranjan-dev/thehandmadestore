@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LightboxImage } from "@/app/_components/ui/LightboxImage";
 
 const EASE_APPLE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
 
@@ -110,7 +110,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
 
   return (
     <article className="space-y-14 md:space-y-20">
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+      <div className="grid grid-cols-1 gap-8 sm:gap-12 md:grid-cols-12 md:gap-16">
         <div
           className={`relative md:col-span-6 ${imageOnRight ? "md:order-2" : "md:order-1"}`}
         >
@@ -122,17 +122,14 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
             aria-hidden
             className="absolute -right-6 -top-6 hidden h-20 w-20 bg-ths-sand md:block"
           />
-          <figure className="relative aspect-[4/5] w-full overflow-hidden bg-ths-earth shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)]">
-            <Image
-              src={lead.src}
-              alt={lead.alt}
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-              style={{ objectPosition: lead.objectPosition ?? "50% 50%" }}
-              priority={index === 0}
-            />
-          </figure>
+          <LightboxImage
+            src={lead.src}
+            alt={lead.alt}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            priority={index === 0}
+            style={{ objectPosition: lead.objectPosition ?? "50% 50%" }}
+            className="relative aspect-[4/5] w-full cursor-zoom-in overflow-hidden border-0 bg-ths-earth p-0 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)]"
+          />
         </div>
 
         <div
@@ -144,12 +141,12 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
           <h3 className="mt-3 font-display text-3xl leading-tight tracking-tight text-ths-ink md:text-4xl lg:text-5xl">
             {title}
           </h3>
-          <div aria-hidden className="mt-8 h-px w-16 bg-ths-ink/30" />
-          <p className="mt-8 text-base leading-relaxed text-ths-ink/80 md:text-lg">
+          <div aria-hidden className="mt-6 h-px w-16 bg-ths-ink/30 sm:mt-8" />
+          <p className="mt-6 text-[15px] leading-relaxed text-ths-ink/80 sm:mt-8 sm:text-base md:text-lg">
             {body}
           </p>
 
-          <ul className="mt-8 space-y-3">
+          <ul className="mt-6 space-y-2.5 sm:mt-8 sm:space-y-3">
             {bullets.map((bullet) => (
               <li
                 key={bullet}
@@ -168,22 +165,18 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
 
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
         {gallery.map((asset) => (
-          <figure
+          <LightboxImage
             key={asset.src}
-            className="group relative aspect-square w-full overflow-hidden bg-ths-earth shadow-[0_12px_30px_-18px_rgba(23,17,13,0.4)]"
-          >
-            <Image
-              src={asset.src}
-              alt={asset.alt}
-              fill
-              sizes="(min-width: 768px) 22vw, 45vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-              style={{
-                objectPosition: asset.objectPosition ?? "50% 50%",
-                transitionTimingFunction: EASE_APPLE_OUT,
-              }}
-            />
-          </figure>
+            src={asset.src}
+            alt={asset.alt}
+            sizes="(min-width: 768px) 22vw, 45vw"
+            style={{
+              objectPosition: asset.objectPosition ?? "50% 50%",
+              transitionTimingFunction: EASE_APPLE_OUT,
+            }}
+            imageClassName="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="group relative aspect-square w-full cursor-zoom-in overflow-hidden border-0 bg-ths-earth p-0 shadow-[0_12px_30px_-18px_rgba(23,17,13,0.4)]"
+          />
         ))}
       </div>
     </article>
@@ -197,7 +190,7 @@ export function ProjectsShowcase() {
       aria-labelledby="projects-heading"
       className="w-full bg-ths-cream"
     >
-      <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-24">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 sm:py-16 md:px-10 md:py-24">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
             Our Projects
@@ -216,7 +209,7 @@ export function ProjectsShowcase() {
           </p>
         </div>
 
-        <div className="mt-16 space-y-24 md:mt-20 md:space-y-32">
+        <div className="mt-12 space-y-16 sm:mt-16 sm:space-y-24 md:mt-20 md:space-y-32">
           {PROJECTS.map((project, index) => (
             <ProjectRow
               key={project.title}

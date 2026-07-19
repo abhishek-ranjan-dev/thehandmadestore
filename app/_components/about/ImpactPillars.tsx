@@ -74,7 +74,7 @@ export function ImpactPillars() {
     <section
       id="impact"
       aria-labelledby="impact-heading"
-      className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-20"
+      className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20"
     >
       <div className="max-w-2xl">
         <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
@@ -86,17 +86,17 @@ export function ImpactPillars() {
         >
           The Hand Made Store Impact
         </h2>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-ths-ink/75">
+        <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ths-ink/75 sm:text-base">
           Four pillars guide every choice — from the fibers we source to the
           box that reaches your door.
         </p>
       </div>
 
-      <ul className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
         {PILLARS.map(({ eyebrow, title, body, Icon }) => (
           <li
             key={title}
-            className="group relative overflow-hidden rounded-2xl border border-white/50 bg-gradient-to-br from-white/70 via-white/40 to-ths-sand/50 p-7 shadow-[0_10px_30px_-18px_rgba(23,17,13,0.35)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-ths-earth/40 hover:shadow-[0_22px_45px_-20px_rgba(23,17,13,0.4)]"
+            className="group relative overflow-hidden rounded-2xl border border-white/50 bg-gradient-to-br from-white/70 via-white/40 to-ths-sand/50 p-6 sm:p-7 shadow-[0_10px_30px_-18px_rgba(23,17,13,0.35)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-ths-earth/40 hover:shadow-[0_22px_45px_-20px_rgba(23,17,13,0.4)]"
             style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
           >
             <span

@@ -16,7 +16,7 @@ export function StorySection() {
       aria-labelledby="story-heading"
       className="relative w-full overflow-hidden bg-ths-cream"
     >
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-14 px-6 py-16 md:grid-cols-12 md:gap-16 md:px-10 md:py-20">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-5 py-14 sm:gap-14 sm:px-6 sm:py-16 md:grid-cols-12 md:gap-16 md:px-10 md:py-20">
         {/* Framed image with offset accent */}
         <div className="relative md:col-span-6">
           <div
@@ -44,10 +44,10 @@ export function StorySection() {
 
         {/* Editorial copy */}
         <div className="relative flex flex-col justify-center md:col-span-6">
-          <div className="flex items-baseline gap-6">
+          <div className="flex items-baseline gap-4 sm:gap-6">
             <span
               aria-hidden
-              className="font-display text-[6rem] leading-none tracking-tight text-ths-earth/25 md:text-[9rem]"
+              className="font-display text-[3.5rem] leading-none tracking-tight text-ths-earth/25 sm:text-[6rem] md:text-[9rem]"
             >
               2019
             </span>
@@ -66,14 +66,14 @@ export function StorySection() {
 
           <div
             aria-hidden
-            className="mt-10 h-px w-16 bg-ths-ink/30"
+            className="mt-8 h-px w-16 bg-ths-ink/30 sm:mt-10"
           />
 
-          <p className="mt-10 font-display text-2xl leading-snug text-ths-ink md:text-3xl">
+          <p className="mt-8 font-display text-xl leading-snug text-ths-ink sm:mt-10 sm:text-2xl md:text-3xl">
             Handcrafted, ethical products &mdash; from Indian hands to yours.
           </p>
 
-          <div className="mt-6 space-y-5 text-base leading-relaxed text-ths-ink/80 md:text-lg">
+          <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-ths-ink/80 sm:space-y-5 sm:text-base md:text-lg">
             <p>
               In 2019 we set out to change how everyday things are made. We
               partnered with indigenous communities of Indian heritage
@@ -88,7 +88,7 @@ export function StorySection() {
             </p>
           </div>
 
-          <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-ths-ink/15 pt-8">
+          <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-ths-ink/15 pt-6 sm:mt-10 sm:gap-6 sm:pt-8">
             {META.map(({ label, value }) => (
               <div key={label}>
                 <dt className="text-[10px] uppercase tracking-[0.3em] text-ths-earth">

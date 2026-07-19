@@ -9,7 +9,7 @@ export function WomenOwnedSection() {
     <section
       id="women-owned"
       aria-labelledby="women-owned-heading"
-      className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-6 py-16 md:grid-cols-12 md:gap-8 md:px-10 md:py-20"
+      className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-5 py-14 sm:gap-10 sm:px-6 sm:py-16 md:grid-cols-12 md:gap-8 md:px-10 md:py-20"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-ths-sand md:col-span-6 md:aspect-auto md:min-h-[520px]">
         <Image
@@ -21,7 +21,7 @@ export function WomenOwnedSection() {
         />
       </div>
 
-      <div className="flex flex-col justify-center gap-6 md:col-span-4">
+      <div className="flex flex-col justify-center gap-4 sm:gap-6 md:col-span-4">
         <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
           Who We Are
         </p>
@@ -39,7 +39,7 @@ export function WomenOwnedSection() {
         </p>
       </div>
 
-      <div className="md:col-span-2 md:min-h-[520px]">
+      <div className="hidden md:col-span-2 md:block md:min-h-[520px]">
         <VideoLoop className="h-full" />
       </div>
     </section>

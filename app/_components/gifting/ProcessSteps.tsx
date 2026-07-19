@@ -113,9 +113,9 @@ export function ProcessSteps() {
     <section
       id="process"
       aria-labelledby="process-heading"
-      className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-24"
+      className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 sm:py-16 md:px-10 md:py-24"
     >
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+      <div className="grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-12 md:gap-16">
         <div className="md:col-span-7">
           <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
             Our Process
@@ -138,11 +138,11 @@ export function ProcessSteps() {
         </div>
       </div>
 
-      <ol className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-5">
+      <ol className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:mt-16 lg:grid-cols-4 lg:gap-5">
         {STEPS.map(({ number, title, body, Icon, highlight }) => (
           <li
             key={number}
-            className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/60 bg-gradient-to-br from-white/75 via-white/45 to-ths-sand/50 p-7 shadow-[0_10px_30px_-18px_rgba(23,17,13,0.35)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-ths-earth/50 hover:shadow-[0_28px_50px_-22px_rgba(23,17,13,0.42)]"
+            className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/60 bg-gradient-to-br from-white/75 via-white/45 to-ths-sand/50 p-6 sm:p-7 shadow-[0_10px_30px_-18px_rgba(23,17,13,0.35)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1.5 hover:border-ths-earth/50 hover:shadow-[0_28px_50px_-22px_rgba(23,17,13,0.42)]"
             style={{ transitionTimingFunction: EASE_APPLE_OUT }}
           >
             <span

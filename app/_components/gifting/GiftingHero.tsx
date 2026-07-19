@@ -19,7 +19,7 @@ export function GiftingHero() {
         className="absolute inset-0 -z-10 bg-gradient-to-r from-ths-ink/90 via-ths-ink/60 to-ths-ink/20"
       />
 
-      <div className="mx-auto flex min-h-[72vh] w-full max-w-7xl flex-col justify-center px-6 py-24 md:min-h-[85vh] md:px-10 md:py-32">
+      <div className="mx-auto flex min-h-[72vh] w-full max-w-7xl flex-col justify-center px-5 py-20 sm:px-6 sm:py-24 md:min-h-[85vh] md:px-10 md:py-32">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.35em] text-ths-clay">
             Bespoke Corporate Gifting
@@ -30,7 +30,7 @@ export function GiftingHero() {
           >
             Hampers that carry your brand&rsquo;s hand.
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-ths-cream/85 md:text-lg">
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-ths-cream/85 sm:mt-6 sm:text-base md:text-lg">
             At THS, we specialize in crafting bespoke gifting hampers that are
             thoughtfully curated to meet the unique needs and values of each
             corporate client. Our process is designed to ensure that every

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LightboxImage } from "@/app/_components/ui/LightboxImage";
 
 const EASE_APPLE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
 
@@ -140,7 +140,15 @@ function CommunityRow({ community, index }: CommunityRowProps) {
 
   return (
     <article className="space-y-12 md:space-y-16">
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+      <div className="grid grid-cols-1 gap-8 sm:gap-12 md:grid-cols-12 md:gap-16">
+        <div className="md:hidden">
+          <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
+            {eyebrow}
+          </p>
+          <h3 className="mt-3 font-display text-3xl leading-tight tracking-tight text-ths-ink">
+            {title}
+          </h3>
+        </div>
         <div
           className={`relative md:col-span-6 ${imageOnRight ? "md:order-2" : "md:order-1"}`}
         >
@@ -152,30 +160,27 @@ function CommunityRow({ community, index }: CommunityRowProps) {
             aria-hidden
             className="absolute -right-6 -top-6 hidden h-20 w-20 bg-ths-sand md:block"
           />
-          <figure className="relative aspect-[4/5] w-full overflow-hidden bg-ths-earth shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)]">
-            <Image
-              src={lead.src}
-              alt={lead.alt}
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-              style={{ objectPosition: lead.objectPosition ?? "50% 50%" }}
-              priority={index === 0}
-            />
-          </figure>
+          <LightboxImage
+            src={lead.src}
+            alt={lead.alt}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            priority={index === 0}
+            style={{ objectPosition: lead.objectPosition ?? "50% 50%" }}
+            className="relative aspect-[4/5] w-full cursor-zoom-in overflow-hidden border-0 bg-ths-earth p-0 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.35)]"
+          />
         </div>
 
         <div
           className={`flex flex-col justify-center md:col-span-6 ${imageOnRight ? "md:order-1" : "md:order-2"}`}
         >
-          <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
+          <p className="hidden text-xs uppercase tracking-[0.35em] text-ths-earth md:block">
             {eyebrow}
           </p>
-          <h3 className="mt-3 font-display text-3xl leading-tight tracking-tight text-ths-ink md:text-4xl lg:text-[2.75rem]">
+          <h3 className="mt-3 hidden font-display text-3xl leading-tight tracking-tight text-ths-ink md:block md:text-4xl lg:text-[2.75rem]">
             {title}
           </h3>
 
-          <dl className="mt-6 grid grid-cols-2 gap-6 border-y border-ths-ink/10 py-5">
+          <dl className="grid grid-cols-2 gap-4 border-y border-ths-ink/10 py-4 sm:gap-6 sm:py-5 md:mt-6">
             <div>
               <dt className="text-[10px] uppercase tracking-[0.3em] text-ths-ink/50">
                 Origin
@@ -211,30 +216,26 @@ function CommunityRow({ community, index }: CommunityRowProps) {
           }`}
         >
           {gallery.map((asset) => (
-            <figure
+            <LightboxImage
               key={asset.src}
-              className={`group relative w-full overflow-hidden bg-ths-earth shadow-[0_12px_30px_-18px_rgba(23,17,13,0.4)] ${
+              src={asset.src}
+              alt={asset.alt}
+              sizes={
+                gallery.length === 1
+                  ? "100vw"
+                  : gallery.length === 2
+                    ? "(min-width: 640px) 45vw, 100vw"
+                    : "(min-width: 768px) 22vw, 45vw"
+              }
+              style={{
+                objectPosition: asset.objectPosition ?? "50% 50%",
+                transitionTimingFunction: EASE_APPLE_OUT,
+              }}
+              imageClassName="object-cover transition-transform duration-700 group-hover:scale-105"
+              className={`group relative w-full cursor-zoom-in overflow-hidden border-0 bg-ths-earth p-0 shadow-[0_12px_30px_-18px_rgba(23,17,13,0.4)] ${
                 gallery.length === 1 ? "aspect-[16/9]" : "aspect-square"
               }`}
-            >
-              <Image
-                src={asset.src}
-                alt={asset.alt}
-                fill
-                sizes={
-                  gallery.length === 1
-                    ? "100vw"
-                    : gallery.length === 2
-                      ? "(min-width: 640px) 45vw, 100vw"
-                      : "(min-width: 768px) 22vw, 45vw"
-                }
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                style={{
-                  objectPosition: asset.objectPosition ?? "50% 50%",
-                  transitionTimingFunction: EASE_APPLE_OUT,
-                }}
-              />
-            </figure>
+            />
           ))}
         </div>
       ) : null}
@@ -249,7 +250,7 @@ export function ArtisanCommunities() {
       aria-labelledby="communities-heading"
       className="w-full bg-ths-cream"
     >
-      <div className="mx-auto w-full max-w-7xl px-6 py-16 md:px-10 md:py-24">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 sm:py-16 md:px-10 md:py-24">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
             Where the craft comes from
@@ -264,7 +265,7 @@ export function ArtisanCommunities() {
           </h2>
         </div>
 
-        <div className="mt-16 space-y-24 md:mt-20 md:space-y-32">
+        <div className="mt-12 space-y-16 sm:mt-16 sm:space-y-24 md:mt-20 md:space-y-32">
           {COMMUNITIES.map((community, index) => (
             <CommunityRow
               key={community.title}

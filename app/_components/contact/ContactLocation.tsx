@@ -1,5 +1,4 @@
 import type { SVGProps } from "react";
-import Image from "next/image";
 
 const WORKSHOP_IMAGE =
   "https://static.wixstatic.com/media/dc7de4_eb1b992c05734baa883c67bf5d7d60b5~mv2.png/v1/fill/w_1600,h_1000,al_c,q_90,enc_avif,quality_auto/IMG-20231015-WA0005_edited.png";
@@ -43,20 +42,19 @@ export function ContactLocation() {
   return (
     <section
       aria-labelledby="visit-heading"
-      className="relative w-full overflow-hidden"
+      className="relative mb-14 w-full overflow-hidden md:mb-20"
     >
-      <div className="absolute inset-0">
-        <Image
-          src={WORKSHOP_IMAGE}
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-ths-ink/70 via-ths-ink/55 to-ths-ink/75" />
-      </div>
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
+        style={{ backgroundImage: `url('${WORKSHOP_IMAGE}')` }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-ths-ink/70 via-ths-ink/55 to-ths-ink/75"
+      />
 
-      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-6 py-20 md:grid-cols-12 md:gap-16 md:px-10 md:py-28">
+      <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-5 py-14 sm:gap-10 sm:px-6 sm:py-16 md:grid-cols-12 md:gap-16 md:px-10 md:py-28">
         <div className="md:col-span-5">
           <p className="text-xs uppercase tracking-[0.35em] text-ths-clay">
             Come by &amp; say hi
@@ -67,14 +65,14 @@ export function ContactLocation() {
           >
             Visit the studio.
           </h2>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-ths-cream/85 md:text-lg">
+          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ths-cream/85 sm:text-base md:text-lg">
             Stop by to see the craft up close &mdash; our workshop is where
             every piece begins.
           </p>
         </div>
 
         <div className="md:col-span-7">
-          <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-white/85 via-white/65 to-white/50 p-8 shadow-[0_25px_60px_-25px_rgba(23,17,13,0.35)] backdrop-blur-xl md:p-12">
+          <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-white/85 via-white/65 to-white/50 p-6 sm:p-8 shadow-[0_25px_60px_-25px_rgba(23,17,13,0.35)] backdrop-blur-xl md:p-12">
             <span
               aria-hidden
               className="pointer-events-none absolute -top-24 -left-24 h-56 w-56 rounded-full bg-gradient-to-br from-ths-clay/25 to-transparent blur-3xl"
@@ -92,7 +90,7 @@ export function ContactLocation() {
                 Mumbai, India
               </h3>
 
-              <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
+              <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 sm:grid-cols-2 sm:gap-8">
                 <div className="flex items-start gap-4">
                   <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/70 text-ths-ink backdrop-blur">
                     <IconPin className="h-5 w-5" aria-hidden />
