@@ -1,0 +1,30 @@
+/* -------------------------------------------------------------------------- */
+/*  Marketing design tokens — the public brand site's OWN design system.       */
+/*                                                                             */
+/*  The (marketing) app is one of three isolated modules (see also             */
+/*  app/shop/shop.css and app/admin/admin.css). These tokens are scoped to     */
+/*  `.marketing-app` (the marketing layout's root wrapper) so the brand site   */
+/*  can evolve its palette, motion, and type independently WITHOUT touching    */
+/*  the shop/admin modules or forcing changes through the shared globals.css.  */
+/*                                                                             */
+/*  The shared `ths-*` Tailwind @theme tokens still live in globals.css (they  */
+/*  back utilities the marketing components already use); this file is the     */
+/*  brand module's private namespace for anything it wants to diverge on.      */
+/*  Tailwind is imported once (globals.css) — do NOT re-import it here.         */
+/* -------------------------------------------------------------------------- */
+
+.marketing-app {
+  /* Palette — warm editorial brand skin */
+  --mkt-ink: #17110d;
+  --mkt-cream: #fdf9ef;
+  --mkt-sand: #f2ead9;
+  --mkt-clay: #c6a071;
+  --mkt-earth: #957855;
+  --mkt-moss: #707365;
+  --mkt-teal: #2f7d78;
+  --mkt-line: rgba(23, 17, 13, 0.14);
+
+  /* Motion */
+  --mkt-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --mkt-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

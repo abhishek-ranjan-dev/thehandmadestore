@@ -6,6 +6,17 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "static.wixstatic.com" },
     ],
   },
+  // The storefront moved from the root ("/products", "/cart", …) under a
+  // dedicated /shop segment. Permanently redirect the old URLs so external
+  // links and any indexed pages don't 404.
+  async redirects() {
+    return [
+      { source: "/products", destination: "/shop", permanent: true },
+      { source: "/cart", destination: "/shop/cart", permanent: true },
+      { source: "/wishlist", destination: "/shop/wishlist", permanent: true },
+      { source: "/account", destination: "/shop/account", permanent: true },
+    ];
+  },
   // Allow LAN devices (iPhone, iPad, other laptops on the same Wi-Fi) to
   // load dev assets. Next 16 blocks cross-origin dev requests by default,
   // which prevents JS hydration when you hit the dev server via the Mac's
