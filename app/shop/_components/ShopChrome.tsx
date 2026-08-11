@@ -52,8 +52,9 @@ export function ShopChrome() {
 
   return (
     <>
-      {/* ---- MOBILE slim top bar (< md) ---- */}
-      <header className="sticky top-0 z-50 flex h-14 items-center justify-between border-b border-black/[0.06] bg-white/70 px-4 backdrop-blur-xl backdrop-saturate-150 md:hidden">
+      {/* ---- MOBILE slim top bar (< md) — NOT sticky; it scrolls away and the
+           search/sort bar pins to the top instead ---- */}
+      <header className="flex h-14 items-center justify-between border-b border-black/[0.06] bg-white/70 px-4 backdrop-blur-xl backdrop-saturate-150 md:hidden">
         <Link
           href="/shop"
           aria-label="The Hand Made Store"

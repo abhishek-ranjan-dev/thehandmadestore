@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Minus, Plus, Trash2, ShoppingBag, ArrowRight, Lock } from "lucide-react";
-import { getProduct } from "@/lib/products";
+import { getProduct, productPath } from "@/lib/products";
 import { ShopScreen } from "./ShopScreen";
 import { useCart } from "./ShopProviders";
 
@@ -45,7 +45,7 @@ export function CartScreen() {
               className="flex gap-3 rounded-2xl border border-black/[0.06] bg-white p-3 shadow-[0_2px_16px_-8px_rgba(0,0,0,0.10)]"
             >
               <Link
-                href={product.href}
+                href={productPath(product.id)}
                 className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-stone-100"
               >
                 <Image

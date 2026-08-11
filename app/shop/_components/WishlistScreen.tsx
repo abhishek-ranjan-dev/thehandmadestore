@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, X, ShoppingBag, ArrowRight } from "lucide-react";
-import { getProduct } from "@/lib/products";
+import { getProduct, productPath } from "@/lib/products";
 import { ShopScreen } from "./ShopScreen";
 import { useCart, useWishlist } from "./ShopProviders";
 
@@ -46,7 +46,7 @@ export function WishlistScreen() {
             return (
               <article
                 key={p.id}
-                className="group relative overflow-hidden rounded-[20px] border border-black/[0.06] bg-white shadow-[0_2px_16px_-8px_rgba(0,0,0,0.12)] transition-all duration-500 ease-[var(--ease-apple-out)] md:hover:-translate-y-1 md:hover:shadow-[0_16px_36px_-16px_rgba(0,0,0,0.22)]"
+                className="group relative overflow-hidden rounded-xl border border-black/[0.06] bg-white shadow-[0_2px_16px_-8px_rgba(0,0,0,0.12)] transition-all duration-500 ease-[var(--ease-apple-out)] md:hover:-translate-y-1 md:hover:shadow-[0_16px_36px_-16px_rgba(0,0,0,0.22)]"
               >
                 <button
                   type="button"
@@ -57,7 +57,7 @@ export function WishlistScreen() {
                   <X className="h-4 w-4" strokeWidth={2.25} />
                 </button>
 
-                <Link href={p.href} className="block">
+                <Link href={productPath(p.id)} className="block">
                   <div className="relative aspect-square overflow-hidden bg-stone-100">
                     <Image
                       src={p.image.src}
