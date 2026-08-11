@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Marcellus, Inter } from "next/font/google";
 import "./globals.css";
-import { SiteHeader } from "@/app/_components/layout/SiteHeader";
-import { SiteFooter } from "@/app/_components/layout/SiteFooter";
-import { StructuredData } from "@/app/_components/seo/StructuredData";
+import { StructuredData } from "@/components/seo/StructuredData";
 
 const display = Marcellus({
   variable: "--font-display",
@@ -73,6 +71,17 @@ export const metadata: Metadata = {
   category: "shopping",
 };
 
+/**
+ * Root layout — application shell only.
+ *
+ * Deliberately free of any header/footer/chrome so the three parts of the app
+ * can each own their own layout AND their own scoped design tokens:
+ *   - app/(marketing) — brand / "start-up" site  → SiteHeader/Footer · marketing.css (.marketing-app)
+ *   - app/shop        — e-commerce storefront     → shop chrome + providers · shop.css (.shop-app)
+ *   - app/admin       — CMS / admin tools         → admin shell + auth gate · admin.css (.admin-app)
+ * Only truly global concerns (fonts, global CSS + shared ths-* @theme tokens,
+ * site-wide structured data) belong here; each module diverges via its own CSS.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -89,9 +98,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <StructuredData />
-        <SiteHeader />
-        <div className="flex flex-1 flex-col">{children}</div>
-        <SiteFooter />
+        {children}
       </body>
     </html>
   );
