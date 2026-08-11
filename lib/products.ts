@@ -65,6 +65,11 @@ export function getProduct(id: string): Product | undefined {
   return PRODUCTS.find((p) => p.id === id);
 }
 
+/** Internal product-detail route for a given product id. Single source of
+ *  truth so the PLP card, wishlist, and cart all link to the same in-app PDP
+ *  (not the external Wix page). */
+export const productPath = (id: string): string => `/shop/product/${id}`;
+
 export const PRODUCTS: Product[] = [
   {
     id: "cork-corporate-gift-hamper",

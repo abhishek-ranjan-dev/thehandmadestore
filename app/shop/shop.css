@@ -22,3 +22,23 @@
   --shop-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --shop-ease-in: cubic-bezier(0.7, 0, 0.84, 0);
 }
+
+/* Mobile filter drawer — slides in as a left sidecard. */
+@keyframes shop-drawer-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.shop-drawer-in {
+  animation: shop-drawer-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-drawer-in {
+    animation: none;
+  }
+}
