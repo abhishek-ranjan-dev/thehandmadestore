@@ -19,7 +19,7 @@ export function HomeHero() {
         className="absolute inset-0 -z-10 bg-gradient-to-r from-ths-ink/90 via-ths-ink/60 to-ths-ink/15"
       />
 
-      <div className="mx-auto flex min-h-[calc(100svh-4rem)] w-full max-w-7xl flex-col justify-end px-5 pb-14 pt-24 sm:min-h-[78vh] sm:px-6 sm:pb-20 sm:pt-32 md:min-h-[88vh] md:px-10 md:pb-28 md:pt-40">
+      <div className="mx-auto flex min-h-svh w-full max-w-7xl flex-col justify-end px-5 pb-14 pt-24 sm:px-6 sm:pb-20 sm:pt-32 md:px-10 md:pb-28 md:pt-40">
         <div className="max-w-3xl">
           <p className="text-[11px] uppercase tracking-[0.4em] text-ths-clay sm:text-xs">
             Handmade in India

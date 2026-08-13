@@ -66,6 +66,82 @@ const IconArrow = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+/** Small decorative corner mark, echoing the "+" registration marks of a
+ * printed card — a subtle nod to the handmade / print craft. */
+const CornerMark = ({ className }: { className?: string }) => (
+  <span
+    aria-hidden
+    className={`pointer-events-none absolute h-3.5 w-3.5 text-ths-earth/45 ${className ?? ""}`}
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+      <path d="M12 4v16M4 12h16" strokeLinecap="round" />
+    </svg>
+  </span>
+);
+
+type ContactMethod = {
+  icon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
+  label: string;
+  value: string;
+  href?: string;
+};
+
+const METHODS: ContactMethod[] = [
+  {
+    icon: IconMail,
+    label: "Email",
+    value: EMAIL,
+    href: `mailto:${EMAIL}`,
+  },
+  {
+    icon: IconClock,
+    label: "Response time",
+    value: "Within one business day, Mon–Sat.",
+  },
+  {
+    icon: IconChat,
+    label: "Live chat",
+    value: "On our shop — look for the chat bubble.",
+  },
+];
+
+function MethodTile({ icon: Icon, label, value, href }: ContactMethod) {
+  const inner = (
+    <>
+      <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/70 text-ths-ink transition-colors duration-300 group-hover:bg-ths-ink group-hover:text-ths-cream">
+        <Icon className="h-[18px] w-[18px]" aria-hidden />
+      </span>
+      <span className="flex flex-col">
+        <span className="text-[10px] uppercase tracking-[0.3em] text-ths-earth">
+          {label}
+        </span>
+        <span
+          className={`mt-1 text-sm text-ths-ink/85 md:text-[15px] ${
+            href ? "break-all underline decoration-ths-ink/25 underline-offset-4" : ""
+          }`}
+        >
+          {value}
+        </span>
+      </span>
+    </>
+  );
+
+  const shared =
+    "group flex items-start gap-3.5 rounded-2xl border border-white/50 bg-white/40 p-3.5 transition-all duration-500 hover:border-ths-earth/35 hover:bg-white/60";
+
+  return href ? (
+    <a
+      href={href}
+      className={shared}
+      style={{ transitionTimingFunction: EASE_APPLE_OUT }}
+    >
+      {inner}
+    </a>
+  ) : (
+    <div className={shared}>{inner}</div>
+  );
+}
+
 type FieldProps = {
   id: string;
   label: string;
@@ -136,7 +212,9 @@ export function ContactFormSection() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Website enquiry from ${firstName} ${lastName}`);
+    const subject = encodeURIComponent(
+      `Website enquiry from ${firstName} ${lastName}`
+    );
     const body = encodeURIComponent(
       `Name: ${firstName} ${lastName}\nEmail: ${email}\n\n${query}`
     );
@@ -148,88 +226,57 @@ export function ContactFormSection() {
     <section
       id="contact-form"
       aria-labelledby="contact-form-heading"
-      className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-6 sm:py-16 md:px-10 md:py-20"
+      className="mx-auto w-full max-w-7xl px-5 pt-28 pb-14 sm:px-6 sm:pt-32 sm:pb-16 md:px-10 md:pt-36 md:pb-20"
     >
-      <div className="grid grid-cols-1 gap-10 sm:gap-12 md:grid-cols-12 md:gap-16">
-        <div className="md:col-span-5">
-          <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
-            Customer Service
-          </p>
-          <h2
-            id="contact-form-heading"
-            className="mt-3 font-display text-3xl leading-tight tracking-tight text-ths-ink md:text-4xl lg:text-5xl"
-          >
-            Questions? Feedback? Custom orders?
-          </h2>
-          <p className="mt-5 text-[15px] leading-relaxed text-ths-ink/75 sm:text-base md:text-lg">
-            For questions about our products and services, drop us a line and
-            we&rsquo;ll get back to you as soon as we can.
-          </p>
+      <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/60 bg-gradient-to-br from-white/75 via-white/50 to-ths-sand/40 shadow-[0_30px_70px_-35px_rgba(23,17,13,0.45)] backdrop-blur-xl">
+        {/* ambient glows */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -top-28 -right-24 h-72 w-72 rounded-full bg-gradient-to-br from-ths-clay/30 to-transparent blur-3xl"
+        />
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -bottom-28 -left-24 h-72 w-72 rounded-full bg-gradient-to-tr from-ths-teal/20 to-transparent blur-3xl"
+        />
 
-          <ul className="mt-8 space-y-3 sm:mt-10 sm:space-y-4">
-            <li>
-              <a
-                href={`mailto:${EMAIL}`}
-                className="group flex items-start gap-4 rounded-2xl border border-white/60 bg-gradient-to-br from-white/70 via-white/40 to-ths-sand/40 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5 hover:border-ths-earth/40 hover:shadow-[0_18px_35px_-20px_rgba(23,17,13,0.35)]"
-                style={{ transitionTimingFunction: EASE_APPLE_OUT }}
+        {/* corner registration marks */}
+        <CornerMark className="left-4 top-4" />
+        <CornerMark className="right-4 top-4" />
+        <CornerMark className="bottom-4 left-4" />
+        <CornerMark className="bottom-4 right-4" />
+
+        <div className="relative grid grid-cols-1 md:grid-cols-5">
+          {/* Left — intro + contact methods */}
+          <div className="flex flex-col justify-between gap-8 border-b border-ths-line p-6 sm:p-8 md:col-span-2 md:border-b-0 md:border-r md:p-10 lg:p-12">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
+                Customer Service
+              </p>
+              <h2
+                id="contact-form-heading"
+                className="mt-3 font-display text-3xl leading-tight tracking-tight text-ths-ink md:text-4xl"
               >
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/70 text-ths-ink transition-colors duration-300 group-hover:bg-ths-ink group-hover:text-ths-cream">
-                  <IconMail className="h-5 w-5" aria-hidden />
-                </span>
-                <span className="flex flex-col">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-ths-earth">
-                    Email
-                  </span>
-                  <span className="mt-1 break-all text-sm text-ths-ink underline decoration-ths-ink/40 underline-offset-4 md:text-base">
-                    {EMAIL}
-                  </span>
-                </span>
-              </a>
-            </li>
-            <li className="flex items-start gap-4 rounded-2xl border border-white/60 bg-gradient-to-br from-white/70 via-white/40 to-ths-sand/40 p-5 backdrop-blur-xl">
-              <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/70 text-ths-ink">
-                <IconChat className="h-5 w-5" aria-hidden />
-              </span>
-              <span className="flex flex-col">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-ths-earth">
-                  Live Chat
-                </span>
-                <span className="mt-1 text-sm text-ths-ink/85 md:text-base">
-                  Available on our shop &mdash; look for the chat bubble.
-                </span>
-              </span>
-            </li>
-            <li className="flex items-start gap-4 rounded-2xl border border-white/60 bg-gradient-to-br from-white/70 via-white/40 to-ths-sand/40 p-5 backdrop-blur-xl">
-              <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/70 text-ths-ink">
-                <IconClock className="h-5 w-5" aria-hidden />
-              </span>
-              <span className="flex flex-col">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-ths-earth">
-                  Response Time
-                </span>
-                <span className="mt-1 text-sm text-ths-ink/85 md:text-base">
-                  We reply within one business day, Monday to Saturday.
-                </span>
-              </span>
-            </li>
-          </ul>
-        </div>
+                Questions? Feedback? Custom orders?
+              </h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-ths-ink/75 md:text-base">
+                For anything about our products or a bespoke piece, drop us a
+                line and we&rsquo;ll get back to you as soon as we can.
+              </p>
+            </div>
 
-        <div className="md:col-span-7">
-          <div
-            className="group relative overflow-hidden rounded-3xl border border-white/60 bg-gradient-to-br from-white/75 via-white/50 to-ths-sand/40 p-6 sm:p-8 shadow-[0_20px_50px_-25px_rgba(23,17,13,0.4)] backdrop-blur-xl md:p-12"
-          >
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-gradient-to-br from-ths-clay/30 to-transparent blur-3xl"
-            />
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-gradient-to-tr from-ths-teal/20 to-transparent blur-3xl"
-            />
+            <ul className="space-y-3">
+              {METHODS.map((m) => (
+                <li key={m.label}>
+                  <MethodTile {...m} />
+                </li>
+              ))}
+            </ul>
+          </div>
 
+          {/* Right — form */}
+          <div className="p-6 sm:p-8 md:col-span-3 md:p-10 lg:p-12">
             {submitted ? (
-              <div className="relative flex min-h-[360px] flex-col items-start justify-center">
+              <div className="flex min-h-[360px] flex-col items-start justify-center">
                 <p className="text-xs uppercase tracking-[0.35em] text-ths-earth">
                   Thank you
                 </p>
@@ -256,7 +303,7 @@ export function ContactFormSection() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="relative space-y-6 sm:space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
                   <Field
                     id="firstName"

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactHero } from "../_components/contact/ContactHero";
 import { ContactFormSection } from "../_components/contact/ContactFormSection";
 import { ContactLocation } from "../_components/contact/ContactLocation";
 
@@ -34,7 +33,6 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main className="flex flex-col">
-      <ContactHero />
       <ContactFormSection />
       <ContactLocation />
     </main>

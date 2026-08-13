@@ -131,16 +131,15 @@ export function CartScreen() {
             </span>
           </div>
 
-          <button
-            type="button"
-            title="Secure checkout — coming soon"
+          <Link
+            href="/shop/checkout"
             className={`mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-[#C86446] px-5 py-3 text-sm font-medium text-white shadow-[0_4px_14px_-4px_rgba(200,100,70,0.55)] transition-all duration-300 active:scale-[0.98] ${EASE}`}
           >
             <Lock className="h-4 w-4" strokeWidth={2} />
             Checkout
-          </button>
+          </Link>
           <p className="mt-2 text-center text-[11px] tracking-tight text-stone-400">
-            Secure checkout — coming soon
+            Secure checkout
           </p>
         </div>
       </div>

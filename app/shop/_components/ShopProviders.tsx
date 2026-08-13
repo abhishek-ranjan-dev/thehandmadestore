@@ -65,6 +65,7 @@ type CartValue = {
   add: (id: string, qty?: number) => void;
   remove: (id: string) => void;
   setQty: (id: string, qty: number) => void;
+  clear: () => void;
   count: number;
   subtotal: number;
   formattedSubtotal: string;
@@ -131,6 +132,7 @@ export function ShopProviders({ children }: { children: React.ReactNode }) {
             ? prev.filter((l) => l.id !== id)
             : prev.map((l) => (l.id === id ? { ...l, qty } : l)),
         ),
+      clear: () => setLines([]),
       count,
       subtotal,
       formattedSubtotal: inr.format(subtotal),
