@@ -98,7 +98,7 @@ export function ServicesSection() {
 
           <div className="mt-10 flex justify-center sm:mt-14 md:mt-16">
             <Link
-              href="/services"
+              href="/gifting"
               className="inline-flex w-full items-center justify-center gap-3 border border-ths-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-ths-ink transition-colors duration-300 hover:bg-ths-ink hover:text-ths-cream sm:w-auto sm:py-3.5"
             >
               <span>Explore services</span>

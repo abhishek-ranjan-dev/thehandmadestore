@@ -23,6 +23,20 @@ const IconArrow = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+const IconChevronDown = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.75}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M6 9l6 6 6-6" />
+  </svg>
+);
+
 type FieldWrapperProps = {
   id: string;
   label: string;
@@ -191,20 +205,26 @@ export function CorporateInquiry() {
                       />
                     </FieldWrapper>
                     <FieldWrapper id="quantity" label="Estimated quantity" required>
-                      <select
-                        id="quantity"
-                        name="quantity"
-                        required
-                        value={quantity}
-                        onChange={(e) => setQuantity(e.target.value)}
-                        className={`${inputBase} appearance-none bg-[url('data:image/svg+xml;utf8,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22%2317110d%22%20stroke-width=%221.75%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22><path%20d=%22M6%209l6%206%206-6%22/></svg>')] bg-[length:16px_16px] bg-[right_0_center] bg-no-repeat pr-8`}
-                      >
-                        {QUANTITIES.map((q) => (
-                          <option key={q} value={q}>
-                            {q}
-                          </option>
-                        ))}
-                      </select>
+                      <div className="relative">
+                        <select
+                          id="quantity"
+                          name="quantity"
+                          required
+                          value={quantity}
+                          onChange={(e) => setQuantity(e.target.value)}
+                          className={`${inputBase} cursor-pointer appearance-none pr-8`}
+                        >
+                          {QUANTITIES.map((q) => (
+                            <option key={q} value={q}>
+                              {q}
+                            </option>
+                          ))}
+                        </select>
+                        <IconChevronDown
+                          aria-hidden
+                          className="pointer-events-none absolute right-0 top-1/2 h-4 w-4 -translate-y-1/2 text-ths-ink/50"
+                        />
+                      </div>
                     </FieldWrapper>
                   </div>
 

@@ -1,11 +1,9 @@
 /* -------------------------------------------------------------------------- */
 /*  Marketing design tokens — the public brand site's OWN design system.       */
 /*                                                                             */
-/*  The (marketing) app is one of three isolated modules (see also             */
-/*  app/shop/shop.css and app/admin/admin.css). These tokens are scoped to     */
-/*  `.marketing-app` (the marketing layout's root wrapper) so the brand site   */
-/*  can evolve its palette, motion, and type independently WITHOUT touching    */
-/*  the shop/admin modules or forcing changes through the shared globals.css.  */
+/*  These tokens are scoped to `.marketing-app` (the marketing layout's root   */
+/*  wrapper) so the brand site can evolve its palette, motion, and type        */
+/*  independently, kept separate from the shared globals.css.                  */
 /*                                                                             */
 /*  The shared `ths-*` Tailwind @theme tokens still live in globals.css (they  */
 /*  back utilities the marketing components already use); this file is the     */

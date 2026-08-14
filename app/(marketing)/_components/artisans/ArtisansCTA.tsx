@@ -39,12 +39,10 @@ export function ArtisansCTA() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
-              href="https://thehandmadestore.co.in"
-              target="_blank"
-              rel="noreferrer noopener"
+              href="/gifting"
               className="inline-flex items-center justify-center rounded-none border border-ths-cream bg-ths-cream px-7 py-3.5 text-xs uppercase tracking-[0.28em] text-ths-ink transition-colors duration-300 hover:bg-transparent hover:text-ths-cream"
             >
-              Visit the shop
+              Explore gifting
             </Link>
             <Link
               href="/contact"

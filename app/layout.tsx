@@ -18,7 +18,7 @@ const body = Inter({
 
 const SITE_URL = "https://www.thehandmadestore.co.in";
 const SITE_DESCRIPTION =
-  "A women-owned local business partnering with indigenous Indian artisans for handcrafted, ethical jewelry, home decor, and lifestyle products.";
+  "A women-owned studio partnering with indigenous Indian artisan communities to create handcrafted, ethical goods and bespoke corporate gifting — festive hampers and custom-branded gift boxes in cork, khadi, seed paper, and terracotta.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -68,19 +68,17 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  category: "shopping",
+  category: "gifting",
 };
 
 /**
  * Root layout — application shell only.
  *
- * Deliberately free of any header/footer/chrome so the three parts of the app
- * can each own their own layout AND their own scoped design tokens:
+ * Deliberately free of any header/footer/chrome so the marketing app owns its
+ * own layout AND its own scoped design tokens:
  *   - app/(marketing) — brand / "start-up" site  → SiteHeader/Footer · marketing.css (.marketing-app)
- *   - app/shop        — e-commerce storefront     → shop chrome + providers · shop.css (.shop-app)
- *   - app/admin       — CMS / admin tools         → admin shell + auth gate · admin.css (.admin-app)
  * Only truly global concerns (fonts, global CSS + shared ths-* @theme tokens,
- * site-wide structured data) belong here; each module diverges via its own CSS.
+ * site-wide structured data) belong here; the module diverges via its own CSS.
  */
 export default function RootLayout({
   children,

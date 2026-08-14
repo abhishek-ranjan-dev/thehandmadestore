@@ -41,10 +41,10 @@ export function HomeHero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">
             <Link
-              href="/shop"
+              href="/gifting"
               className="inline-flex w-full items-center justify-center border border-ths-cream bg-ths-cream px-8 py-4 text-xs uppercase tracking-[0.28em] text-ths-ink transition-colors duration-300 hover:bg-transparent hover:text-ths-cream sm:w-auto sm:py-3.5"
             >
-              Shop the store
+              Explore gifting
             </Link>
             <Link
               href="/artisans"

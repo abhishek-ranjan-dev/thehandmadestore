@@ -17,18 +17,25 @@ export function ArtisansHero() {
         className="absolute inset-0 -z-10 bg-gradient-to-t from-ths-ink/90 via-ths-ink/55 to-ths-ink/25"
       />
 
-      <div className="mx-auto flex min-h-svh w-full max-w-7xl flex-col justify-end px-5 pb-14 pt-28 sm:px-6 sm:pb-20 sm:pt-32 md:px-10 md:pb-24 md:pt-40">
+      <div className="mx-auto flex min-h-svh w-full max-w-7xl flex-col justify-center px-5 py-24 sm:px-6 sm:py-28 md:px-10 md:py-32">
         <div className="max-w-3xl">
-          <p className="text-xs uppercase tracking-[0.4em] text-ths-clay">
+          <p
+            className="animate-apple-fade-up text-xs uppercase tracking-[0.4em] text-ths-clay"
+            style={{ animationDelay: "80ms" }}
+          >
             Our People
           </p>
           <h1
             id="artisans-hero-heading"
-            className="mt-5 font-display text-5xl leading-[1.02] tracking-tight text-ths-cream md:text-6xl lg:text-7xl"
+            className="animate-apple-fade-up mt-5 font-display text-5xl leading-[1.02] tracking-tight text-ths-cream md:text-6xl lg:text-7xl"
+            style={{ animationDelay: "180ms" }}
           >
             Meet our&nbsp;artisans.
           </h1>
-          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-ths-cream/85 sm:mt-7 sm:text-base md:text-lg">
+          <p
+            className="animate-apple-fade-up mt-6 max-w-2xl text-[15px] leading-relaxed text-ths-cream/85 sm:mt-7 sm:text-base md:text-lg"
+            style={{ animationDelay: "320ms" }}
+          >
             Behind every piece we sell is a person, a place, and a practice
             older than us. These are the makers we work with &mdash; from the
             Nilgiri Hills to the potters&rsquo; colony in Dharavi &mdash; and

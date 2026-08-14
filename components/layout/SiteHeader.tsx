@@ -8,8 +8,6 @@ import { useEffect, useState } from "react";
 const BRAND_MARK =
   "https://static.wixstatic.com/media/3581e8_bd79e60756984a8db3e9cb306751552c~mv2.png/v1/fill/w_120,h_108,al_c,q_85,enc_avif,quality_auto/mark.png";
 
-const SHOP_URL = "/shop";
-
 const EASE_APPLE = "cubic-bezier(0.32, 0.72, 0, 1)";
 const EASE_APPLE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
 
@@ -116,19 +114,6 @@ function MobileDrawerNav({
           </Link>
         );
       })}
-      <Link
-        href={SHOP_URL}
-        onClick={onNavigate}
-        className={`mt-6 inline-flex w-full items-center justify-center rounded-full border border-white/40 bg-ths-ink/95 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ths-cream shadow-lg backdrop-blur transition-transform duration-300 active:scale-[0.97] ${
-          open ? "animate-apple-fade-up" : "opacity-0"
-        }`}
-        style={{
-          animationDelay: open ? `${80 + items.length * 55}ms` : "0ms",
-          transitionTimingFunction: EASE_APPLE_OUT,
-        }}
-      >
-        Shop Now
-      </Link>
     </nav>
   );
 }
@@ -205,18 +190,6 @@ export function SiteHeader() {
         <DesktopNav items={NAV} pathname={pathname} />
 
         <div className="flex items-center gap-3">
-          <Link
-            href={SHOP_URL}
-            className="group relative hidden overflow-hidden rounded-full border border-white/50 bg-white/90 px-5 py-2 text-sm font-semibold text-ths-ink shadow-[0_6px_20px_-8px_rgba(0,0,0,0.35)] backdrop-blur-lg transition-all duration-500 hover:bg-white hover:shadow-[0_10px_28px_-8px_rgba(0,0,0,0.45)] active:scale-[0.97] md:inline-flex md:px-6 md:py-2.5"
-            style={{ transitionTimingFunction: EASE_APPLE_OUT }}
-          >
-            <span
-              aria-hidden
-              className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/80 to-transparent opacity-0 transition-transform duration-700 group-hover:translate-x-full group-hover:opacity-100"
-              style={{ transitionTimingFunction: EASE_APPLE_OUT }}
-            />
-            <span className="relative">Shop Now</span>
-          </Link>
           <button
             type="button"
             aria-label="Open navigation menu"
