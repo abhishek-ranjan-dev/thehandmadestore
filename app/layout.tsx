@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Marcellus, Inter } from "next/font/google";
 import "./globals.css";
+import "./marketing.css";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { StructuredData } from "@/components/seo/StructuredData";
 
 const display = Marcellus({
@@ -72,13 +75,11 @@ export const metadata: Metadata = {
 };
 
 /**
- * Root layout — application shell only.
- *
- * Deliberately free of any header/footer/chrome so the marketing app owns its
- * own layout AND its own scoped design tokens:
- *   - app/(marketing) — brand / "start-up" site  → SiteHeader/Footer · marketing.css (.marketing-app)
- * Only truly global concerns (fonts, global CSS + shared ths-* @theme tokens,
- * site-wide structured data) belong here; the module diverges via its own CSS.
+ * Root layout — the single public brand site. Owns the app shell (html/body,
+ * fonts, global + brand CSS, site-wide structured data) AND the shared chrome
+ * (SiteHeader / SiteFooter). The `.marketing-app` wrapper scopes the brand's
+ * `--mkt-*` design tokens (see marketing.css); shared `ths-*` @theme tokens
+ * live in globals.css.
  */
 export default function RootLayout({
   children,
@@ -96,7 +97,11 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <StructuredData />
-        {children}
+        <div className="marketing-app flex flex-1 flex-col">
+          <SiteHeader />
+          <div className="flex flex-1 flex-col">{children}</div>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

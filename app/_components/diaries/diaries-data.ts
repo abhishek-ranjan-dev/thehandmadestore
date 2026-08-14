@@ -3,7 +3,7 @@
  * Titles, excerpts, images, and body copy were migrated from the published Wix
  * blog (https://www.thehandmadestore.co.in/the-handmade-diaries). Each post has
  * a clean internal `slug` and a structured `body` rendered by the article route
- * at app/(marketing)/the-handmade-diaries/[slug]/page.tsx.
+ * at app/the-handmade-diaries/[slug]/page.tsx.
  *
  * Images are served from Wix's media CDN (already allowed in next.config.ts).
  * Only the media id (before `/v1/…`) is significant — the trailing filename is

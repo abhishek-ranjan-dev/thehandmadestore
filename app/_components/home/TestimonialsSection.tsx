@@ -46,8 +46,9 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       />
       <div className="relative z-10 flex h-full flex-col">
         <div
-          className="flex gap-0.5 text-ths-earth"
+          role="img"
           aria-label="5 out of 5 stars"
+          className="flex gap-0.5 text-ths-earth"
         >
           {[0, 1, 2, 3, 4].map((i) => (
             <StarIcon key={i} className="h-3.5 w-3.5" />
